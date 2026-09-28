@@ -1,16 +1,11 @@
 name: openapi-guard
 
 on:
+  # Sin filtro de `paths`, por el mismo motivo que en ci-backend.yml.
   pull_request:
     branches: [develop, main]
-    paths:
-      - 'backend/**'
-      - '.github/workflows/openapi-guard.yml'
   push:
     branches: [develop, main]
-    paths:
-      - 'backend/**'
-      - '.github/workflows/openapi-guard.yml'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
