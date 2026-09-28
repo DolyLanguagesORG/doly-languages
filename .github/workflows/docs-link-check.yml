@@ -2,13 +2,13 @@ name: docs-link-check
 
 on:
   pull_request:
-    branches: [dev, prod]
+    branches: [develop, main]
     paths:
       - 'docs/**'
       - '**.md'
       - '.github/workflows/docs-link-check.yml'
   push:
-    branches: [dev, prod]
+    branches: [develop, main]
     paths:
       - 'docs/**'
       - '**.md'

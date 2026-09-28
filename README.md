@@ -22,8 +22,9 @@ IA y evalúa las respuestas del usuario en tiempo real.
 
 ## Estado actual
 
-- Backend: activo y desplegado en producción (rama `prod`).
-- Cliente móvil: pausado hasta nuevo aviso (rama `main` no la uses, es legacy).
+- Backend: activo. La integración diaria ocurre en `develop`; `main` es la rama
+  estable de producción.
+- Cliente móvil: pausado hasta nuevo aviso.
 - El backend histórico en AdonisJS fue eliminado; ahora todo está en NestJS.
 
 ## Licencia

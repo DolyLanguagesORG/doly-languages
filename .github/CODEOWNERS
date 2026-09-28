@@ -2,6 +2,25 @@
 # Lines starting with '#' are comments.
 # Each line is a file pattern followed by one or more owners.
 # Order matters: later patterns override earlier ones.
+#
+# ─────────────────────────────────────────────────────────────────────────
+# PENDIENTE: agregar a los integrantes del equipo.
+#
+# La protección de ramas exige 1 aprobación de un CODEOWNER, y GitHub no
+# permite que el autor del PR sea su propio aprobador. Mientras `*` tenga un
+# solo owner, un PR de otra persona que toque archivos del backend se queda
+# esperando revisión de @SebastianRdzC04.
+#
+# Para agregar a un compañero:
+#   1. Abre https://github.com/<su-usuario> y confirma el username exacto.
+#   2. Reemplaza los marcadores de abajo por los usernames reales.
+#   3. Borra la línea `# PLACEHOLDER:` de cada teammate al completarlo.
+#
+# Integrantes pendientes (ver Anteproyecto - DolyNation.md):
+#   - Juan Antonio Deras Durón        → @PLACEHOLDER-1
+#   - Aozmar Azael García Candela      → @PLACEHOLDER-2
+#   - José Elías Galarza Pedroza       → @PLACEHOLDER-3
+# ─────────────────────────────────────────────────────────────────────────
 
 # Default owner for everything in the repo
 * @SebastianRdzC04

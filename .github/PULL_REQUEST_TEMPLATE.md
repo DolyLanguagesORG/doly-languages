@@ -27,6 +27,21 @@ docs/conventions/git-workflow.md for the rules.
 
 <!-- Enlace al issue o descripción del bug. "Refs: #123" o "Fixes #456". -->
 
+Closes #
+
+## Rama base
+
+<!-- Confirma que el PR apunta a la rama correcta. -->
+
+- [ ] El PR apunta a `develop` (trabajo diario)
+- [ ] El PR apunta a `main` (solo release o hotfix)
+
+## Título del PR
+
+<!-- Lo valida el check `pr-title` de CI. Debe seguir Conventional Commits:
+     `feat(scope): ...`, `fix(scope): ...`, `chore(scope): ...`.
+     Ver docs/conventions/commits.md -->
+
 ## Cambios principales
 
 <!-- Lista de archivos o áreas clave tocadas. -->
@@ -39,6 +54,7 @@ docs/conventions/git-workflow.md for the rules.
 
 - [ ] `cd backend && npm run verify` pasa localmente
 - [ ] Tests añadidos o actualizados (cubren el cambio)
+- [ ] La rama está al día con `develop` y no hay conflictos de merge
 - [ ] Si cambié la API: DTOs documentados con `@ApiProperty` (en inglés)
 - [ ] Si cambié la API: el endpoint devuelve el envelope `{ message, data, error? }` via `apiOk`
 - [ ] Si añadí un código de error: está en el enum `ErrorCode` y en `ErrorCatalog`

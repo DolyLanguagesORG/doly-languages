@@ -7,94 +7,141 @@ verdad para PRs, merges y hotfixes.
 
 ```
                      ┌──────────────────┐
-                     │   feature/*      │
-                     │   fix/*          │
-                     │   chore/*        │
+                     │   feat/issue-12-* │
+                     │   fix/issue-45-*  │
+                     │   chore/*         │
+                     │   docs/*          │
                      └────────┬─────────┘
-                              │  PR + checks
+                              │  PR + checks en verde
                               ▼
                      ┌──────────────────┐
-                     │      dev         │  ← integración diaria
+                     │     develop      │  ← integración diaria
                      └────────┬─────────┘
-                              │  PR + 1 review CODEOWNER + checks
+                              │  PR + 1 aprobación + checks
                               ▼
                      ┌──────────────────┐
-                     │      prod        │  ← producción
+                     │      main        │  ← producción / release
                      └──────────────────┘
 
                      ┌──────────────────┐
-                     │      main        │  ← legacy AdonisJS, INERTE
+                     │   hotfix/*       │  ← sale de main, vuelve a develop
                      └──────────────────┘
 ```
 
 ## Convenciones de nombres
 
-- `feature/<kebab>` — nuevas funcionalidades
-- `fix/<kebab>` — correcciones
+El prefijo de la rama coincide con el **tipo de commit** que llevará
+(ver [commits.md](./commits.md)), para evitar confusiones alinear
+`feat/issue-12-login` con `feat(auth): ...`.
+
+- `feat/issue-<n>-<kebab>` — nuevas funcionalidades
+- `fix/issue-<n>-<kebab>` — correcciones
 - `chore/<kebab>` — refactors, limpieza, tooling
+- `docs/<kebab>` — solo documentación
+- `hotfix/<kebab>` — corrección urgente sobre producción
 
-Sin número de issue, sin prefijos de autor. Ejemplos:
+El número de issue es obligatorio en `feat/` y `fix/` para poder trazar la
+tarea en el tablero de Projects.
 
-- `feature/prompt-builder-difficulty`
-- `fix/openapi-prefix-bug`
+Ejemplos:
+
+- `feat/issue-12-login-page`
+- `fix/issue-45-header-bug`
 - `chore/remove-archived-backend`
+- `docs/git-workflow`
 
 Máximo 50 caracteres en total.
 
 ## Reglas por rama
 
-### `dev` (integración diaria)
+### `develop` (integración diaria)
 
-- Recibe PRs de `feature/*`, `fix/*`, `chore/*`.
+- Recibe PRs de `feat/*`, `fix/*`, `chore/*`, `docs/*`.
 - Requiere **status checks** verdes antes de mergear (CI de GitHub Actions).
-- Squash-merge para mantener historia lineal.
+- Requiere **1 aprobación** de un CODEOWNER.
+- **Prohibido el push directo**: siempre por PR.
+- Solo **squash-merge**, para mantener historia lineal.
 - No se permiten force-pushes ni deleciones.
-- Linear history obligatorio.
 
-### `prod` (producción)
+### `main` (producción / release)
 
-- Recibe PRs **únicamente** desde `dev` (excepto hotfixes).
+- Recibe PRs **únicamente** desde `develop` (excepto hotfixes).
 - Requiere status checks verdes **más** 1 aprobación de CODEOWNER.
-- Squash-merge.
-- Solo `@SebastianRdzC04` puede mergear directamente (`restrictions`).
+- **Prohibido el push directo**: siempre por PR.
+- Solo **squash-merge**.
 - No se permiten force-pushes ni deleciones.
 
-### `main` (legacy, INERTE)
-
-Es la rama default de GitHub heredada de la era AdonisJS. **No la uses.**
-
-- No recibe PRs.
-- No tiene protección activa.
-- No se commitea contra ella.
-- Si GitHub te la sugiere como base de un PR, cambia la base a `dev`.
+`main` permanece estable entre releases. Durante el desarrollo activo solo
+recibe merge en los hitos acordados.
 
 ## Procedimiento de hotfix
 
 Para un fix urgente en producción:
 
-1. Crea rama desde `prod`:
+1. Crea rama desde `main`:
    ```bash
-   git checkout prod
-   git checkout -b fix/<nombre-descriptivo>
+   git checkout main
+   git checkout -b hotfix/<nombre-descriptivo>
    ```
 2. Commitea el fix mínimo (ver [commits.md](./commits.md)).
-3. Abre PR con título `[HOTFIX] <descripción>` directo contra `prod`.
-4. Después de mergearlo en `prod`, **cherry-pick** el commit a `dev`:
+3. Abre PR con título `fix(scope): <descripción>` directo contra `main`.
+4. Después de mergearlo en `main`, **cherry-pick** el commit a `develop`:
    ```bash
-   git checkout dev
+   git checkout develop
    git cherry-pick <sha-del-hotfix>
-   git push origin dev
+   git push origin develop
    ```
+
+## Cómo trabajar en el día a día
+
+```bash
+# 1. Traer lo último de develop
+git checkout develop
+git pull
+
+# 2. Crear la rama de la tarea
+git checkout -b feat/issue-12-login-page
+
+# 3. Verificar antes de commitear
+cd backend && npm run verify
+
+# 4. Commitear (husky + commitlint validan el mensaje)
+git add -A
+git commit -m "feat(auth): register endpoint with argon2 hashing"
+
+# 5. Publicar la rama y abrir el PR hacia develop
+git push -u origin feat/issue-12-login-page
+gh pr create --base develop --title "feat(auth): register endpoint" --body "Closes #12"
+```
 
 ## Política de merges
 
-- **Squash-merge** en `dev` y `prod` para mantener la historia lineal.
-- Commits locales en feature branches pueden ser múltiples; el squash
+- **Solo squash-merge**, en `develop` y en `main`, para mantener historia lineal.
+- Commits locales en la rama de trabajo pueden ser múltiples; el squash
   los colapsa en uno al mergear.
-- Títulos de PR siguen Conventional Commits (ver [commits.md](./commits.md)).
+- Títulos de PR siguen Conventional Commits y los valida el check
+  `pr-title` de CI (ver [commits.md](./commits.md)).
+
+## Versionado
+
+El título del commit de squash determina el bump automático de versión
+(ver [versioning.md](./versioning.md)):
+
+| Prefijo del título del PR | Bump  | Ejemplo           |
+| ------------------------- | ----- | ----------------- |
+| `fix:` / `refactor:` / …  | patch | `v0.1.0` → `v0.1.1` |
+| `feat:`                   | minor | `v0.1.0` → `v0.2.0` |
+| `!` (breaking)            | major | `v0.1.0` → `v1.0.0` |
 
 ## Pull requests
 
 Usa la plantilla en [`.github/PULL_REQUEST_TEMPLATE.md`](../../.github/PULL_REQUEST_TEMPLATE.md).
 Cada PR debe tener su checklist marcado antes de pedir review:
 `npm run verify` pasa, tests añadidos, envelope respetado, etc.
+
+Los archivos que considero requeridos por un PR:
+
+- `.github/workflows/ci-backend.yml` — `unit-and-static`, `e2e`, `build`
+- `.github/workflows/openapi-guard.yml` — `openapi-guard`
+- `.github/workflows/docs-link-check.yml` — `link-check`
+- `.github/workflows/pr-title.yml` — `pr-title`

@@ -1,0 +1,44 @@
+name: pr-title
+
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+    branches: [develop, main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pr-title:
+    name: pr-title
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate Conventional Commits title
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          # Este repo no tiene un paquete de Conventional Commits instalado
+          # en el workflow, así que validamos con una regex equivalente a
+          # @commitlint/config-conventional sobre el tipo y el scope.
+          # Ver docs/conventions/commits.md
+
+          types='feat|fix|refactor|docs|test|chore|build|ci|perf|style'
+
+          regex="^(${types})(\([a-z0-9._/-]+\))?(!)?: .+"
+
+          if [[ ! "$PR_TITLE" =~ $regex ]]; then
+            echo "::error::Título de PR inválido: '$PR_TITLE'"
+            echo ""
+            echo "::error::Debe seguir Conventional Commits, por ejemplo:"
+            echo "::error::  feat(auth): agregar registro de usuarios"
+            echo "::error::  fix(readings): corregir prompt de dificultad alta"
+            echo "::error::  chore(deps): actualizar nestjs a 11.1"
+            echo ""
+            echo "::error::Formato: <tipo>(<scope>): <descripción en inglés>"
+            echo "::error::Tipos permitidos: $types"
+            echo "::error::Un breaking change lleva '!' antes de los dos puntos."
+            exit 1
+          fi
+
+          echo "Título válido: '$PR_TITLE'"

@@ -2,12 +2,12 @@ name: openapi-guard
 
 on:
   pull_request:
-    branches: [dev, prod]
+    branches: [develop, main]
     paths:
       - 'backend/**'
       - '.github/workflows/openapi-guard.yml'
   push:
-    branches: [dev, prod]
+    branches: [develop, main]
     paths:
       - 'backend/**'
       - '.github/workflows/openapi-guard.yml'

@@ -2,13 +2,13 @@ name: backend
 
 on:
   pull_request:
-    branches: [dev, prod]
+    branches: [develop, main]
     paths:
       - 'backend/**'
       - 'infrastructure/database/postgres/**'
       - '.github/workflows/ci-backend.yml'
   push:
-    branches: [dev, prod]
+    branches: [develop, main]
     paths:
       - 'backend/**'
       - 'infrastructure/database/postgres/**'
