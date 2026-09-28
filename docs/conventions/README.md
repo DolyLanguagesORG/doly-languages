@@ -8,8 +8,9 @@ duplica** el comportamiento, lo explica y lo enlaza.
 
 | Página                                                          | Tema                                                              |
 | --------------------------------------------------------------- | --------------------------------------------------------------- |
-| [git-workflow.md](./git-workflow.md)                            | Ramas, PRs, hotfixes, política sobre `main` legacy              |
+| [git-workflow.md](./git-workflow.md)                            | Ramas `main`/`develop`, PRs, hotfixes                            |
 | [commits.md](./commits.md)                                      | Conventional Commits, scopes, ejemplos válidos                   |
+| [versioning.md](./versioning.md)                                | Versionado semántico automático y reglas de bump                 |
 | [code-style.md](./code-style.md)                                | TypeScript estricto, ESLint, Prettier                            |
 | [testing.md](./testing.md)                                      | Unit + e2e, qué testear, política por tipo de cambio             |
 | [api-contracts.md](./api-contracts.md)                          | Envelope de respuesta, catálogo de códigos de error, Scalar docs |
