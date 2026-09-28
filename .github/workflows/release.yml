@@ -38,6 +38,11 @@ jobs:
         run: |
           set -euo pipefail
 
+          # El runner no trae identidad de git configurada, y `git tag -a`
+          # la exige para crear un tag anotado.
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
           # --- Versión actual: último tag vX.Y.Z, o base v0.1.0 ---
           current="$(git tag --list 'v[0-9]*.[0-9]*.[0-9]*' --sort=-v:refname | head -n1)"
           if [ -z "$current" ]; then
@@ -114,10 +119,17 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VERSION: ${{ steps.version.outputs.version }}
-          SUBJECT: ${{ steps.version.outputs.subject }}
         run: |
+          set -euo pipefail
+
+          if gh release view "$VERSION" >/dev/null 2>&1; then
+            echo "La release $VERSION ya existía; no se hace nada."
+            exit 0
+          fi
+
+          # --generate-notes construye las notas a partir de los commits
+          # entre el tag anterior y HEAD. En el primer release no hay tag
+          # anterior y GitHub usa todos los commits del repo.
           gh release create "$VERSION" \
             --title "$VERSION" \
-            --generate-notes \
-            --notes-start-tag "$(git tag --list 'v[0-9]*.[0-9]*.[0-9]*' --sort=-v:refname | sed -n '2p' || echo '')" \
-            || gh release create "$VERSION" --title "$VERSION" --notes "$SUBJECT"
+            --generate-notes
