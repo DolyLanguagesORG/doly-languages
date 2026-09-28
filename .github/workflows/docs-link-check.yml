@@ -1,18 +1,12 @@
 name: docs-link-check
 
 on:
+  # Sin filtro de `paths`, por el mismo motivo que en ci-backend.yml: los
+  # checks exigidos por la protección de ramas deben reportar siempre.
   pull_request:
     branches: [develop, main]
-    paths:
-      - 'docs/**'
-      - '**.md'
-      - '.github/workflows/docs-link-check.yml'
   push:
     branches: [develop, main]
-    paths:
-      - 'docs/**'
-      - '**.md'
-      - '.github/workflows/docs-link-check.yml'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}

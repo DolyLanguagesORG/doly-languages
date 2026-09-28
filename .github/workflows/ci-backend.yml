@@ -1,18 +1,14 @@
 name: backend
 
 on:
+  # Sin filtro de `paths`: la protección de ramas exige estos checks en
+  # todos los PRs, y si un workflow no se dispara su check nunca reporta
+  # y el PR queda bloqueado indefinidamente. El repo es público, así que
+  # los minutos de Actions son gratuitos.
   pull_request:
     branches: [develop, main]
-    paths:
-      - 'backend/**'
-      - 'infrastructure/database/postgres/**'
-      - '.github/workflows/ci-backend.yml'
   push:
     branches: [develop, main]
-    paths:
-      - 'backend/**'
-      - 'infrastructure/database/postgres/**'
-      - '.github/workflows/ci-backend.yml'
 
 # Cancel any in-progress runs for the same PR/branch when a new commit
 # is pushed. Saves CI minutes on stacked commits.
