@@ -20,8 +20,8 @@ docker --version
 ## Clonar el repo
 
 ```bash
-git clone git@github.com:SebastianRdzC04/dolynglish.git
-cd dolynglish
+git clone git@github.com:DolyLanguagesORG/doly-languages.git
+cd doly-languages
 ```
 
 ## Instalar dependencias del backend
