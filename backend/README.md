@@ -154,4 +154,5 @@ Lee [`docs/CONTRIBUTING.md`](../docs/CONTRIBUTING.md) y la
 
 ## License
 
-`UNLICENSED` — proyecto privado.
+`UNLICENSED`. El repositorio es público, pero no se ha definido una licencia
+abierta, así que todos los derechos quedan reservados.
