@@ -1,9 +1,13 @@
-# Cronograma del MVP — DolyNation
+# Cronograma de DolyNation
 
 Este documento es la fuente de verdad escrita del cronograma. La vista
 interactiva (Kanban y Timeline) vive en el [Project de GitHub](
 https://github.com/users/XxjesusalbertoxX/projects/3), y el detalle de cada
 tarea en los issues del repositorio.
+
+> **Alcance:** este cronograma cubre el **producto completo**, de principio a
+> fin. El tag `v1.0.0` del Sprint 5 es la primera versión estable de ese
+> producto, no una entrega parcial.
 
 | Dato | Valor |
 | --- | --- |
@@ -17,9 +21,9 @@ tarea en los issues del repositorio.
 
 ## Dónde ver el avance
 
-- **Kanban y Timeline**: [Project — DolyNation Roadmap MVP (2026)](https://github.com/users/XxjesusalbertoxX/projects/3)
+- **Kanban y Timeline**: [Project — DolyNation Plan de Desarrollo (2026)](https://github.com/users/XxjesusalbertoxX/projects/3)
   - Vista *Tablero Kanban*: agrupada por `Status` (Todo / In Progress / In Review / Done)
-  - Vista *Timeline del MVP*: eje de tiempo con `Start Date` → `Target Date`
+  - Vista *Timeline del producto*: eje de tiempo con `Start Date` → `Target Date`
   - Vista *Todos los entregables*: tabla con las 33 tareas
 - **Issues**: los 33 entregables, uno por tarea
 - **Milestones**: un milestone por sprint, con su fecha de cierre
@@ -121,11 +125,11 @@ referencia para pasar de uno a otro.
 
 ---
 
-## Sprint 5 — Pruebas, Tagging v1.0.0 y Cierre del MVP
+## Sprint 5 — Pruebas, Tagging v1.0.0 y Cierre del proyecto
 
 **Periodo:** 30/Nov – 10/Dic/2026  
 **Objetivo:** Congelamiento de código, ejecución de pruebas E2E, tagging de versión estable v1.0.0 y entrega académica del anteproyecto.  
-**Cierre (milestone):** [Sprint 5: Pruebas, Tagging v1.0.0 y Cierre del MVP](https://github.com/DolyLanguagesORG/doly-languages/milestone/5)  
+**Cierre (milestone):** [Sprint 5: Pruebas, Tagging v1.0.0 y Cierre del proyecto](https://github.com/DolyLanguagesORG/doly-languages/milestone/5)  
 **Tareas:** 4
 
 | # | Issue | Tarea | Responsable | Inicio | Entrega |
