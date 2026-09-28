@@ -15,7 +15,7 @@ IA y evalúa las respuestas del usuario en tiempo real.
 
 ## Empezar
 
-- **Cronograma del MVP**: [`docs/cronograma.md`](./docs/cronograma.md) — 5 sprints,
+- **Cronograma del proyecto**: [`docs/cronograma.md`](./docs/cronograma.md) — 5 sprints,
   33 tareas, del 05/Oct/2026 al 10/Dic/2026
 - **Setup del backend**: [`docs/onboarding/setup.md`](./docs/onboarding/setup.md)
 - **Cómo contribuir**: [`docs/CONTRIBUTING.md`](./docs/CONTRIBUTING.md)
@@ -24,7 +24,7 @@ IA y evalúa las respuestas del usuario en tiempo real.
 
 ## Estado actual
 
-- Release vigente: `v0.1.0`. La entrega de cierre del MVP está prevista para
+- Release vigente: `v0.1.0`. La entrega de cierre del proyecto está prevista para
   `v1.0.0`.
 - Backend: activo. La integración diaria ocurre en `develop`; `main` es la rama
   estable de producción.

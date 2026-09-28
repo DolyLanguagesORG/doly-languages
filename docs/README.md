@@ -36,8 +36,8 @@ actualmente deshabilitado) y la infraestructura dockerizada.
 
 - Backend: activo y desplegado.
 - Mobile: pausado hasta nuevo aviso.
-- Release vigente: `v0.1.0`; la entrega de cierre del MVP está prevista para
-  `v1.0.0`.
+- Release vigente: `v0.1.0`; la entrega de cierre del proyecto está prevista
+  para `v1.0.0`.
 - La planificación vive en GitHub: [Project con Kanban y Timeline](https://github.com/users/XxjesusalbertoxX/projects/3),
   [issues](https://github.com/DolyLanguagesORG/doly-languages/issues),
   [milestones](https://github.com/DolyLanguagesORG/doly-languages/milestones) y el
