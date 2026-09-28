@@ -3,7 +3,7 @@
 Gracias por sumarte al equipo de Dolynglish. Esta guía resume el flujo de
 trabajo en cinco líneas. Para el detalle, sigue los enlaces.
 
-1. **Clona** el repo: `git clone git@github.com:SebastianRdzC04/dolynglish.git`
+1. **Clona** el repo: `git clone git@github.com:DolyLanguagesORG/doly-languages.git`
 2. **Instala** dependencias: `cd backend && npm ci`
 3. **Levanta** el entorno local ([onboarding/setup.md](./onboarding/setup.md))
 4. **Crea una rama** desde `dev`: `git checkout -b feature/<nombre-kebab>`

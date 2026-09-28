@@ -13,10 +13,12 @@ actualmente deshabilitado) y la infraestructura dockerizada.
 | `mobile/`           | Cliente Expo SDK 54 / React Native                           | Deshabilitado       |
 | `infrastructure/`   | Docker Compose para Postgres + backend en producción         | Activo              |
 | `docs/`             | Esta documentación                                           | Activo              |
-| `.github/`          | Workflows de CI, plantillas de PR, CODEOWNERS                | Activo (este PR)    |
+| `.github/`          | Workflows de CI, plantillas de PR, CODEOWNERS                | Activo              |
 
 ## Índice de la documentación
 
+- **Cronograma**: [cronograma.md](./cronograma.md) — plan de 5 sprints y 33
+  tareas, del 05/Oct/2026 al 10/Dic/2026.
 - **Entrada rápida**: [CONTRIBUTING.md](./CONTRIBUTING.md) — clonar,
   instalar, contribuir, abrir un PR.
 - **Convenciones** (cómo escribir código, commits, PRs): [conventions/](./conventions/README.md)
@@ -34,8 +36,14 @@ actualmente deshabilitado) y la infraestructura dockerizada.
 
 - Backend: activo y desplegado.
 - Mobile: pausado hasta nuevo aviso.
-- `backend-adonis-bak/`: eliminado (la migración a Nest está completa).
+- Release vigente: `v0.1.0`; la entrega de cierre del MVP está prevista para
+  `v1.0.0`.
+- La planificación vive en GitHub: [Project con Kanban y Timeline](https://github.com/users/XxjesusalbertoxX/projects/3),
+  [issues](https://github.com/DolyLanguagesORG/doly-languages/issues),
+  [milestones](https://github.com/DolyLanguagesORG/doly-languages/milestones) y el
+  [hilo de standup diario](https://github.com/DolyLanguagesORG/doly-languages/discussions/39).
 
 ## Licencia
 
-`UNLICENSED` — proyecto privado.
+`UNLICENSED`. El repositorio es público, pero no se ha definido una licencia
+abierta, así que todos los derechos quedan reservados.
