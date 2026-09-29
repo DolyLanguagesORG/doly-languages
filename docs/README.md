@@ -1,27 +1,39 @@
 # Dolynglish — Documentación
 
-Dolynglish es una aplicación móvil de práctica de inglés que genera ejercicios
+Dolynglish es una aplicación web de práctica de inglés que genera ejercicios
 de lectura con IA y evalúa las respuestas del usuario. Este repositorio
-contiene el backend activo (NestJS), el cliente móvil (Expo / React Native,
-actualmente deshabilitado) y la infraestructura dockerizada.
+contiene el backend activo (NestJS), la infraestructura dockerizada y el
+cliente Expo heredado (`mobile/`, deshabilitado y fuera del alcance de
+`v1.0.0`; el diseño de `v1.0.0` es web responsivo, ver issue #35).
 
 ## Estructura del repositorio
 
 | Carpeta             | Contenido                                                    | Estado              |
 | ------------------- | ------------------------------------------------------------ | ------------------- |
 | `backend/`          | API REST en NestJS 11 + Drizzle ORM + PostgreSQL             | Activo              |
-| `mobile/`           | Cliente Expo SDK 54 / React Native                           | Deshabilitado       |
+| `mobile/`           | Cliente Expo SDK 54 / React Native (heredado)              | Deshabilitado       |
 | `infrastructure/`   | Docker Compose para Postgres + backend en producción         | Activo              |
 | `docs/`             | Esta documentación                                           | Activo              |
 | `.github/`          | Workflows de CI, plantillas de PR, CODEOWNERS                | Activo              |
 
 ## Índice de la documentación
 
-- **Cronograma**: [cronograma.md](./cronograma.md) — plan de 5 sprints y 33
-  tareas, del 05/Oct/2026 al 10/Dic/2026.
-- **Entrada rápida**: [CONTRIBUTING.md](./CONTRIBUTING.md) — clonar,
-  instalar, contribuir, abrir un PR.
-- **Convenciones** (cómo escribir código, commits, PRs): [conventions/](./conventions/README.md)
+**Empieza por aquí:**
+
+- **[Cómo hacer un Pull Request](./COMO-HACER-UN-PR.md)** — flujo paso a paso:
+  ramas, checks, `Closes #N`, troubleshooting. **Léelo si vas a abrir tu
+  primer PR.**
+- **[Flujo de trabajo del repositorio](./FLUJO-DE-TRABAJO.md)** — el panorama
+  completo: ramas, tablero, CODEOWNERS, dependencias, releases, y qué reglas
+  **sí** te bloquean y cuáles no.
+- [Cronograma](./cronograma.md) — plan de 5 sprints y 33 tareas, del
+  05/Oct/2026 al 10/Dic/2026.
+- [Entrada rápida](./CONTRIBUTING.md) — clonar, instalar, contribuir.
+
+**Detalle:**
+
+- **Convenciones** (cómo escribir código, commits, PRs):
+  [conventions/](./conventions/README.md)
 - **Arquitectura**: [architecture/](./architecture/README.md)
 - **Onboarding**: [onboarding/](./onboarding/README.md)
 
