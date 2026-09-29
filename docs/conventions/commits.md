@@ -1,13 +1,25 @@
 # Commits
 
 El proyecto sigue [Conventional Commits](https://www.conventionalcommits.org/).
-Los mensajes se validan automáticamente con commitlint vía git hooks (ver
+Los mensajes se validan con `commitlint` vía los git hooks de husky (ver
 [code-style.md](./code-style.md)).
+
+> **⚠️ La validación de mensajes es local, no de CI.**
+> El hook `.husky/commit-msg` corre commitlint en tu máquina, pero **ningún
+> check de GitHub Actions revisa los mensajes de commit**. Solo se valida el
+> **título del PR** (check `pr-title`). Si commiteas con `--no-verify`, o sin
+> haber corrido `npm ci` en `backend/` (que es lo que instala husky), el
+> mensaje entra sin revisarse. Un detalle adicional: el hook hace
+> `cd backend` antes de ejecutarse, así que **solo funciona si commiteas desde
+> la raíz del repositorio**.
+>
+> El CI tampoco comprueba el **idioma** del mensaje ni que el `scope` esté en la
+> lista de más abajo: el `scope` solo lo valida commitlint en local.
 
 ## Estructura del mensaje
 
 ```
-<type>(<scope>): <subject en inglés, imperativo, ≤72 chars>
+<type>(<scope>): <subject, imperativo, ≤72 chars>
 
 <body opcional, wrap a 72 chars>
 
@@ -40,9 +52,22 @@ Lista cerrada — usa uno de estos o crea uno nuevo documentándolo:
 
 ## Reglas de formato
 
-1. **Subject en inglés**, tiempo presente, imperativo:
-   - ✅ `feat(readings): echo userResponse in EvaluationResultDto`
-   - ❌ `Added a new field` / `WIP` / `updates`
+1. **Subject imperativo** y en tiempo presente, ≤72 caracteres. El idioma del
+   repositorio es el **español**; el historial de `develop` está escrito en
+   español y los commits nuevos siguen esa línea.
+   - Ejemplo válido: `feat(readings): agrega el prompt de dificultad alta al visor`
+   - Inválido siempre: `Added a new field` / `WIP` / `updates`
+
+   > Este documento decía antes "en inglés". Ya no aplica: los commits
+   > anteriores que quedaron en inglés **no se reescriben** (eso reescribiría
+   > el historial y cambiaría todos los hashes), pero todo commit nuevo se
+   > escribe en español.
+   >
+   > Esto aplica al mensaje del commit y al título del PR. **No aplica al
+   > contrato de API**: las descripciones de DTO, los mensajes de error y las
+   > operaciones van en inglés porque los leen clientes externos. Ver
+   > [api-contracts.md](./api-contracts.md).
+
 
 2. **≤72 caracteres** en subject. Si necesitas más, muévelo al body.
 

@@ -184,9 +184,10 @@ referencia para pasar de uno a otro.
 Cada tarea del cronograma se entrega con un pull request:
 
 1. La rama sigue la convención `feat/issue-<n>-<kebab>`, donde `<n>` es el
-   **número de GitHub** del issue (no el número de cronograma).
+   **número de GitHub** del issue (no el número de cronograma). También se
+   acepta el formato `<n>-<kebab>` que genera el botón *Create a branch*.
 2. El PR va hacia `develop`, salvo el PR de release, que va hacia `main`.
-3. El título del PR es un Conventional Commit en inglés; el check
+3. El título del PR es un Conventional Commit **en español**; el check
    `pr-title` lo valida.
 4. Se requieren 7 checks en verde y una aprobación antes de fusionar.
 5. Al fusionar a `main`, el workflow `release` crea el tag y la release

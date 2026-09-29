@@ -35,7 +35,7 @@ jobs:
             echo "::error::  fix(readings): corregir prompt de dificultad alta"
             echo "::error::  chore(deps): actualizar nestjs a 11.1"
             echo ""
-            echo "::error::Formato: <tipo>(<scope>): <descripción en inglés>"
+            echo "::error::Formato: <tipo>(<scope>): <descripción>"
             echo "::error::Tipos permitidos: $types"
             echo "::error::Un breaking change lleva '!' antes de los dos puntos."
             exit 1
@@ -59,9 +59,14 @@ jobs:
 
           case "$BASE" in
             develop)
-              # Ramas de trabajo permitidas hacia develop.
-              if [[ ! "$HEAD" =~ ^(feat|fix|chore|docs)/ ]]; then
-                echo "::error::Un PR hacia 'develop' debe venir de feat/*, fix/*, chore/* o docs/*."
+              # Se aceptan dos formatos de rama hacia develop:
+              #   1. Con prefijo, que es la forma recomendada porque dice el tipo
+              #      de cambio de un vistazo: feat/issue-<n>-<kebab>, fix/..., etc.
+              #   2. El que genera el boton "Create a branch" del issue, que es
+              #      <n>-<kebab>. Se acepta para no bloquear a quien usa el boton.
+              # Ver docs/conventions/git-workflow.md
+              if [[ ! "$HEAD" =~ ^(feat|fix|chore|docs)/ ]] && [[ ! "$HEAD" =~ ^[0-9]+- ]]; then
+                echo "::error::Un PR hacia 'develop' debe venir de feat/*, fix/*, chore/*, docs/* o del formato <n>-<kebab>."
                 echo "::error::Rama origen actual: '$HEAD'"
                 exit 1
               fi

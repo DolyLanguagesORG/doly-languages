@@ -1,6 +1,6 @@
 # Dolynglish
 
-Aplicación móvil de práctica de inglés que genera ejercicios de lectura con
+Aplicación web de práctica de inglés que genera ejercicios de lectura con
 IA y evalúa las respuestas del usuario en tiempo real.
 
 ## Estructura del repositorio
@@ -8,7 +8,7 @@ IA y evalúa las respuestas del usuario en tiempo real.
 | Carpeta             | Contenido                                                  | Estado              |
 | ------------------- | ---------------------------------------------------------- | ------------------- |
 | [`backend/`](./backend/README.md)         | API REST NestJS 11 + Drizzle ORM + PostgreSQL 15   | Activo              |
-| [`mobile/`](./mobile/README.md)           | Cliente Expo SDK 54 / React Native                 | Deshabilitado       |
+| [`mobile/`](./mobile/README.md)           | Cliente Expo SDK 54 / React Native (heredado)      | Deshabilitado       |
 | [`infrastructure/`](./infrastructure/README.md) | Docker Compose (Postgres + backend en prod) | Activo              |
 | [`docs/`](./docs/README.md)               | Convenciones, arquitectura, onboarding             | Activo              |
 | [`.github/`](./.github)                  | CI workflows, plantillas, CODEOWNERS              | Activo              |
@@ -17,6 +17,10 @@ IA y evalúa las respuestas del usuario en tiempo real.
 
 - **Cronograma del proyecto**: [`docs/cronograma.md`](./docs/cronograma.md) — 5 sprints,
   33 tareas, del 05/Oct/2026 al 10/Dic/2026
+- **Cómo hacer un PR**: [`docs/COMO-HACER-UN-PR.md`](./docs/COMO-HACER-UN-PR.md) — guía
+  paso a paso para el equipo
+- **Flujo del repositorio**: [`docs/FLUJO-DE-TRABAJO.md`](./docs/FLUJO-DE-TRABAJO.md) — ramas,
+  tablero, releases y reglas
 - **Setup del backend**: [`docs/onboarding/setup.md`](./docs/onboarding/setup.md)
 - **Cómo contribuir**: [`docs/CONTRIBUTING.md`](./docs/CONTRIBUTING.md)
 - **Convenciones**: [`docs/conventions/`](./docs/conventions/README.md)
@@ -28,7 +32,9 @@ IA y evalúa las respuestas del usuario en tiempo real.
   `v1.0.0`.
 - Backend: activo. La integración diaria ocurre en `develop`; `main` es la rama
   estable de producción.
-- Cliente móvil: pausado hasta nuevo aviso.
+- Cliente Expo heredado (`mobile/`): pausado y fuera del alcance de `v1.0.0`.
+- El alcance de `v1.0.0` es una web app (Next.js) responsiva, adaptable a
+  ventanas de móvil y escritorio (ver issue #35).
 - El backend histórico en AdonisJS fue eliminado; ahora todo está en NestJS.
 
 ## Próximos pasos
