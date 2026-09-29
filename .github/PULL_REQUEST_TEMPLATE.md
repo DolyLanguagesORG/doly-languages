@@ -27,7 +27,12 @@ Panorama del repo: docs/FLUJO-DE-TRABAJO.md
 
 ## Issue / contexto
 
-<!-- Enlace al issue o descripción del bug. "Refs: #123" o "Fixes #456". -->
+<!--
+Escribe el issue que este PR cierra. El formato es `Closes #<numero>`.
+GitHub cierra el issue solo al mergear, pero SOLO si el PR apunta a `develop`,
+que es la rama por defecto. En un PR hacia `main` usa `Refs #<numero>`: la
+palabra de cierre se ignora y el issue queda abierto.
+-->
 
 Closes #
 
@@ -35,8 +40,8 @@ Closes #
 
 <!-- Confirma que el PR apunta a la rama correcta. -->
 
-- [ ] El PR apunta a `develop` (trabajo diario)
-- [ ] El PR apunta a `main` (solo release o hotfix)
+- [ ] El PR apunta a `develop` (trabajo diario) → aquí sí funciona `Closes #`
+- [ ] El PR apunta a `main` (solo release o hotfix) → aquí usa `Refs #`, no `Closes #`
 
 ## Título del PR
 

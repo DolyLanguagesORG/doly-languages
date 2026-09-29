@@ -10,7 +10,9 @@ name: pr-labels
 
 on:
   pull_request:
-    types: [opened, reopened, synchronize, labeled, unlabeled]
+    # 'edited' importa: es cuando alguien anade el 'Closes #N' despues de
+    # abrir el PR, y sin ese evento las etiquetas nunca se copiarian.
+    types: [opened, reopened, synchronize, edited, labeled, unlabeled]
 
 permissions:
   contents: read
@@ -34,9 +36,24 @@ jobs:
             // El issue es el primero que cerraria este PR. Para eso se leen
             // las palabras clave de cierre del cuerpo.
             const body = context.payload.pull_request.body || '';
-            const closeRe = /\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\s*:?\s+(?:[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+)?#(\d+)/gi;
+
+            // La palabra clave tiene que estar al INICIO de una linea (como
+            // exige GitHub), no mencionada dentro de una frase. Sin el ancla
+            // '^' con 'm', un PR que escribe "el PR anterior uso `Closes #6`"
+            // para explicar algo se llevaba las etiquetas del #6 sin que
+            // GitHub fuera a cerrarlo nunca. Se permiten delante los marcadores
+            // de lista, cita y enfasis, que GitHub tambien acepta.
+            const CLOSE_RE = new RegExp(
+              '^[ \\t]*' +
+              '(?:[-*>+][ \\t]*|[0-9]+[.)][ \\t]*|' +
+              '(?:[*_]\\s*){1,2}' +
+              ')*' +
+              '(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\\b[ \\t]+:?[ \\t]*' +
+              '(?:[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+)?#([0-9]+)',
+              'gim'
+            );
             const issueNumbers = [...new Set(
-              [...body.matchAll(closeRe)].map((m) => Number(m[1]))
+              [...body.matchAll(CLOSE_RE)].map((m) => Number(m[1]))
             )];
 
             if (issueNumbers.length === 0) {
