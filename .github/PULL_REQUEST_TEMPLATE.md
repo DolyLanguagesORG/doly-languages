@@ -1,7 +1,9 @@
 <!--
 Thanks for the PR! Please fill out the sections below so reviewers have
-context. The CI must pass before this can be merged — see
-docs/conventions/git-workflow.md for the rules.
+context. The CI must pass before this can be merged.
+
+Guia paso a paso: docs/COMO-HACER-UN-PR.md
+Panorama del repo: docs/FLUJO-DE-TRABAJO.md
 -->
 
 ## Resumen
@@ -61,7 +63,8 @@ Closes #
 - [ ] Si cambié la API: actualicé `docs/conventions/api-contracts.md` si aplica
 - [ ] Si añadí un script: actualicé la tabla en `backend/README.md`
 - [ ] Sin secretos, `.env`, ni archivos generados en el diff
-- [ ] Commits siguen Conventional Commits (verificado por commitlint)
+- [ ] Commits siguen Conventional Commits — commitlint lo verificó en local al
+      commitear (recordatorio: **CI no vuelve a validar los mensajes**)
 
 ## Screenshots / logs
 

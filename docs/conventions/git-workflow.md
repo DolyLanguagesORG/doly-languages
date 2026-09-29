@@ -57,19 +57,27 @@ Máximo 50 caracteres en total.
 ### `develop` (integración diaria)
 
 - Recibe PRs de `feat/*`, `fix/*`, `chore/*`, `docs/*`.
-- Requiere **status checks** verdes antes de mergear (CI de GitHub Actions).
-- Requiere **1 aprobación** de un CODEOWNER.
+- Requiere los **7 status checks** verdes antes de mergear (CI de GitHub
+  Actions).
+- Requiere **1 aprobación** de cualquier persona con acceso al repositorio.
+  Los `CODEOWNERS` se solicitan automáticamente pero **no son obligatorios**
+  (`require_code_owner_reviews: false`), ver
+  [FLUJO-DE-TRABAJO.md](../FLUJO-DE-TRABAJO.md#codeowners).
 - **Prohibido el push directo**: siempre por PR.
 - Solo **squash-merge**, para mantener historia lineal.
 - No se permiten force-pushes ni deleciones.
+- Todas las conversaciones del PR deben estar resueltas.
+- `develop` **no exige** estar al día con la rama base: se puede mergear con
+  la rama de trabajo atrasada.
 
 ### `main` (producción / release)
 
 - Recibe PRs **únicamente** desde `develop` (excepto hotfixes).
-- Requiere status checks verdes **más** 1 aprobación de CODEOWNER.
+- Requiere los mismos 7 status checks **más** 1 aprobación.
 - **Prohibido el push directo**: siempre por PR.
 - Solo **squash-merge**.
 - No se permiten force-pushes ni deleciones.
+- Al mergear se dispara `release.yml`, que crea el tag y la GitHub Release.
 
 `main` permanece estable entre releases. Durante el desarrollo activo solo
 recibe merge en los hitos acordados.
@@ -135,13 +143,28 @@ El título del commit de squash determina el bump automático de versión
 
 ## Pull requests
 
-Usa la plantilla en [`.github/PULL_REQUEST_TEMPLATE.md`](../../.github/PULL_REQUEST_TEMPLATE.md).
-Cada PR debe tener su checklist marcado antes de pedir review:
-`npm run verify` pasa, tests añadidos, envelope respetado, etc.
+Usa la plantilla en [`.github/PULL_REQUEST_TEMPLATE.md`](../../.github/PULL_REQUEST_TEMPLATE.md)
+y el paso a paso de [COMO-HACER-UN-PR.md](../COMO-HACER-UN-PR.md). Cada PR
+debe tener su checklist marcado antes de pedir review: `npm run verify` pasa,
+tests añadidos, envelope respetado, etc.
 
-Los archivos que considero requeridos por un PR:
+Para enlazar el PR con su issue, escribe `Closes #<n>` en el **cuerpo del PR**.
+`Refs #<n>` solo deja una mención y **no** cierra el issue al mergear.
 
-- `.github/workflows/ci-backend.yml` — `unit-and-static`, `e2e`, `build`
-- `.github/workflows/openapi-guard.yml` — `openapi-guard`
-- `.github/workflows/docs-link-check.yml` — `link-check`
-- `.github/workflows/pr-title.yml` — `pr-title`
+## Los checks de CI que bloquean el merge
+
+Son 7 checks repartidos en 4 archivos. Si uno falla, GitHub no habilita el
+botón de merge.
+
+| Check | Archivo | Qué valida |
+| --- | --- | --- |
+| `unit-and-static` | `.github/workflows/ci-backend.yml` | tipos, lint, formato y tests unitarios |
+| `e2e` | `.github/workflows/ci-backend.yml` | tests end-to-end |
+| `build` | `.github/workflows/ci-backend.yml` | que el backend compile |
+| `link-check` | `.github/workflows/docs-link-check.yml` | links de la documentación |
+| `openapi-guard` | `.github/workflows/openapi-guard.yml` | contrato de la API |
+| `pr-title` | `.github/workflows/pr-title.yml` | formato del título del PR |
+| `pr-target` | `.github/workflows/pr-title.yml` | rama base y rama origen |
+
+`pr-title.yml` contiene **dos** jobs (`pr-title` y `pr-target`), por eso son
+7 checks y no 5 workflows.
