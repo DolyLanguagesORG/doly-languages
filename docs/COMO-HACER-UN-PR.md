@@ -205,6 +205,13 @@ Closes #14
 Refs #35
 ```
 
+> **Verifica que el enlace se creó.** Después de abrir el PR, entra al issue y
+> comprueba que el PR aparece en la sección **Development**. Si no aparece,
+> el enlace no se registró aunque la palabra clave esté escrita. En ese caso:
+> deja la palabra clave igual (es la sintaxis correcta) y, tras mergear, cierra
+> el issue a mano. También puedes enlazarlo desde el propio issue, en
+> **Development → Link a pull request**.
+
 ### 8. Espera los 7 checks
 
 Cuando abras el PR arranca el CI. Son **7 checks repartidos en 5 archivos**:
@@ -291,7 +298,7 @@ exactamente qué te estás saltando.
 | Botón de merge gris | Falta un check, o falta aprobación | Revisa la sección *Checks* del PR |
 | `link-check` en rojo | Un link roto en un `.md` | Corrige el link; en docs, rutas relativas |
 | `openapi-guard` en rojo | Cambiaste un DTO sin actualizar el contrato | Lee el error: te dice qué campo se movió |
-| El issue no se cerró al mergear | Usaste `Refs` en vez de `Closes` | Ciérralo a mano y ya |
+| El issue no se cerró al mergear | El enlace no se registró, o usaste `Refs` en vez de `Closes` | Ciérralo a mano. Comprueba antes la sección *Development* del issue |
 | `e2e` falla en verde local | Falta un servicio en tu entorno | Levanta Docker: ver [onboarding/setup.md](./onboarding/setup.md) |
 | Commits en rojo en `develop` | Falta actualizar la rama | `git switch develop && git pull`, luego `git rebase origin/develop` |
 
