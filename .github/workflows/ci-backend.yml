@@ -48,6 +48,14 @@ jobs:
           npm run format:check
           npm run test -- --testPathIgnorePatterns='/test/'
 
+      - name: Test del regex de pr-labels
+        # El regex de palabras clave de cierre de pr-labels.yml copio una vez
+        # las etiquetas de un issue que GitHub no iba a cerrar (por mencionar
+        # 'Closes #6' dentro de una frase). Va aqui y no en un workflow
+        # aparte para no anadir un check nuevo que haya que registrar en la
+        # proteccion de ramas: solo necesitan node, que ya esta instalado.
+        run: node ../.github/workflows/pr-labels.regex.test.cjs
+
       - name: Upload coverage
         if: always()
         uses: actions/upload-artifact@v4

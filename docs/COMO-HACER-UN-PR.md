@@ -199,6 +199,25 @@ No tienes que copiarlas a mano, pero **sí tienes que haber escrito el `Closes`*
 si el PR no cierra ningún issue, el workflow no sabe de dónde sacar las
 etiquetas y no hace nada.
 
+> **Pon el `Closes` en su propia línea, al principio.** El workflow exige lo
+> mismo que GitHub: la palabra tiene que **empezar la línea**, no aparecer
+> mencionada en medio de una frase. Si escribes *"el PR anterior llevaba
+> `Closes #6`"*, GitHub no cierra el #6… y el workflow tampoco lo toma, así que
+> tampoco te pone sus etiquetas. Sirve `- Closes #6`, `> Closes #6` o
+> `**Closes #6**`.
+>
+> `Refs #6` **no** propaga etiquetas: no es una palabra de cierre.
+>
+> El workflow también se re-dispara cuando **editas** el cuerpo del PR, así que
+> no pasa nada si abres el PR y luego añades el `Closes`.
+>
+> Para cambiar el comportamiento de esa detección hay un test que lee el regex
+> del propio workflow, para que no puedan desincronizarse:
+>
+> ```bash
+> node .github/workflows/pr-labels.regex.test.cjs
+> ```
+
 ### 7. Enlaza el issue: `Closes`, no `Refs`
 
 **Esta es la parte que más confunde, y es la más importante.**
