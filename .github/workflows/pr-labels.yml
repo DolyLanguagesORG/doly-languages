@@ -10,7 +10,9 @@ name: pr-labels
 
 on:
   pull_request:
-    types: [opened, reopened, synchronize, labeled, unlabeled]
+    # 'edited' importa: es cuando alguien anade el 'Closes #N' despues de
+    # abrir el PR, y sin ese evento las etiquetas nunca se copiarian.
+    types: [opened, reopened, synchronize, edited, labeled, unlabeled]
 
 permissions:
   contents: read
