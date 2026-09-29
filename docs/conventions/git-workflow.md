@@ -43,6 +43,26 @@ El prefijo de la rama coincide con el **tipo de commit** que llevará
 El número de issue es obligatorio en `feat/` y `fix/` para poder trazar la
 tarea en el tablero de Projects.
 
+### También se acepta el formato de GitHub
+
+El botón **Create a branch** de un issue crea la rama con el nombre `<n>-<kebab>`,
+por ejemplo `12-login-page`. Ese formato **también lo acepta el check
+`pr-target`**, para que usar el botón no implique un CI en rojo.
+
+| | Con prefijo | Formato de GitHub |
+| --- | --- | --- |
+| Ejemplo | `feat/issue-12-login-page` | `12-login-page` |
+| Dice el tipo de cambio | Sí, de un vistazo | No |
+| Enlaza con el tablero | Sí, si pones `issue-<n>` | Sí, por el número |
+| Sale del botón *Create a branch* | No | Sí |
+| Lo acepta `pr-target` | Sí | Sí |
+
+**La forma con prefijo es la recomendada**, porque el prefijo te dice si es una
+funcionalidad, un bug o documentación sin abrir la rama. El formato de GitHub es
+el atajo para cuando prefieres el botón. No se mezclan en un mismo PR: usa una
+o la otra.
+
+
 Ejemplos:
 
 - `feat/issue-12-login-page`

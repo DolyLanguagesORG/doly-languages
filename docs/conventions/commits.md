@@ -52,13 +52,22 @@ Lista cerrada — usa uno de estos o crea uno nuevo documentándolo:
 
 ## Reglas de formato
 
-1. **Subject imperativo** y en tiempo presente, ≤72 caracteres. El idioma **no
-   lo impone ninguna herramienta**: este documento decía antes "en inglés",
-   pero el historial de `develop` está escrito en español y nadie lo revisa.
-   **Está pendiente que el equipo decida un idioma y se documente aquí.** Hasta
-   entonces, sigue el criterio del commit más reciente del área que toques.
-   - Ejemplo válido: `feat(readings): echo userResponse in EvaluationResultDto`
+1. **Subject imperativo** y en tiempo presente, ≤72 caracteres. El idioma del
+   repositorio es el **español**; el historial de `develop` está escrito en
+   español y los commits nuevos siguen esa línea.
+   - Ejemplo válido: `feat(readings): agrega el prompt de dificultad alta al visor`
    - Inválido siempre: `Added a new field` / `WIP` / `updates`
+
+   > Este documento decía antes "en inglés". Ya no aplica: los commits
+   > anteriores que quedaron en inglés **no se reescriben** (eso reescribiría
+   > el historial y cambiaría todos los hashes), pero todo commit nuevo se
+   > escribe en español.
+   >
+   > Esto aplica al mensaje del commit y al título del PR. **No aplica al
+   > contrato de API**: las descripciones de DTO, los mensajes de error y las
+   > operaciones van en inglés porque los leen clientes externos. Ver
+   > [api-contracts.md](./api-contracts.md).
+
 
 2. **≤72 caracteres** en subject. Si necesitas más, muévelo al body.
 
