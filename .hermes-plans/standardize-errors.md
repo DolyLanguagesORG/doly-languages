@@ -1,5 +1,10 @@
 # Plan: Estandarización de respuestas y errores del API
 
+> ⚠️ **Documento histórico.** Se conserva como registro de cómo se hizo aquel
+> trabajo. Las ramas que menciona ya no existen: el repositorio usa
+> `develop` (integración) y `main` (producción), no `dev` ni `prod`. Para el
+> flujo vigente ver [docs/COMO-HACER-UN-PR.md](../docs/COMO-HACER-UN-PR.md).
+
 **Fecha:** 2026-08-28
 **Rama:** `feature/standardize-errors`
 **Convención (regla del usuario):** `{ message, data, error? }` con códigos estables

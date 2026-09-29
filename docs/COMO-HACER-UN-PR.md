@@ -52,7 +52,8 @@ trabajabas, esto lo trae.
 git switch -c feat/issue-12-login-page
 ```
 
-**Prefijos permitidos** (el check `pr-target` rechaza cualquier otro):
+**Prefijos permitidos** (el check `pr-target` acepta estos, y también el
+formato de GitHub que se explica abajo):
 
 | Prefijo | Para qué |
 | --- | --- |
@@ -67,13 +68,30 @@ git switch -c feat/issue-12-login-page
 - En `feat/` y `fix/` el **número de issue es obligatorio**: `feat/issue-12-login-page`.
   Sin él nadie puede trazar tu PR en el tablero.
 - En `chore/` y `docs/` es opcional.
-- Máximo 50 caracteres.
+- Máximo 50 caracteres *(convención del equipo; el CI no lo mide)*.
 - El prefijo debe coincidir con el tipo de commit que va a llevar. Si la rama
   es `feat/`, el commit es `feat(...)` y el título del PR es `feat(...)`.
 - Todo en kebab-case, sin espacios ni acentos: `docs/actualiza-readme`.
 
-> ⚠️ Hay referencias a una rama `dev` en [CONTRIBUTING.md](./CONTRIBUTING.md)
-> que **no existe**. La rama de integración es `develop`.
+#### ¿Prefijo o el botón *Create a branch*?
+
+Las dos formas valen. El botón **Create a branch** del issue crea la rama como
+`<n>-<kebab>` (`12-login-page`), y `pr-target` también la acepta, para que usar
+el botón no te deje el CI en rojo.
+
+| | Con prefijo | Formato de GitHub |
+| --- | --- | --- |
+| Ejemplo | `feat/issue-12-login-page` | `12-login-page` |
+| Dice el tipo de cambio | Sí, de un vistazo | No |
+| La acepta `pr-target` | Sí | Sí |
+| Sale del botón *Create a branch* | No | Sí |
+
+**La forma con prefijo es la recomendada.** No las mezcles en el mismo PR.
+
+> ⚠️ **El botón no hace todo.** Crea la rama y ya. No te asigna el PR, no
+> mueve la tarjeta a *In Progress*, no escribe el `Closes #<n>` y no sube
+> código. Eso lo haces tú, paso a paso.
+
 
 ### 3. Verifica en local antes de commitear
 
@@ -171,9 +189,15 @@ O en la web: <https://github.com/DolyLanguagesORG/doly-languages/compare/develop
 | Regla | Detalle |
 | --- | --- |
 | **Rama base** | `develop` para trabajo diario. `main` solo para release o hotfix |
-| **Rama origen** | debe empezar con `feat/`, `fix/`, `chore/` o `docs/` |
+| **Rama origen** | `feat/`, `fix/`, `chore/`, `docs/` **o** el formato `<n>-<kebab>` de GitHub |
 | **Título** | debe ser Conventional Commits: `tipo(scope): descripción` |
 | **Merges** | solo **squash**. No hay merge commit ni rebase merge |
+
+**Las etiquetas se copian solas.** El workflow `pr-labels` lee el `Closes #N`
+del cuerpo, busca ese issue y le pone al PR sus etiquetas `sprint-*` y `area:*`.
+No tienes que copiarlas a mano, pero **sí tienes que haber escrito el `Closes`**:
+si el PR no cierra ningún issue, el workflow no sabe de dónde sacar las
+etiquetas y no hace nada.
 
 ### 7. Enlaza el issue: `Closes`, no `Refs`
 
@@ -262,6 +286,51 @@ Botón **Squash and merge**. Al hacerlo:
 3. **Tu issue se cierra solo** si usaste `Closes #N`.
 4. La rama se borra automáticamente.
 5. **No** se dispara ningún release: eso solo pasa al mergear en `main`.
+
+## El estado del tablero: cuándo va *In Review*
+
+**Nada de esto es automático, y ahí está el error más común.** El tablero no
+sabe que hubo revisión. Si tú no mueves la tarjeta, se queda en *In Progress*
+para siempre aunque el PR ya esté approved.
+
+| Cuándo | Estado de la tarjeta | Quién lo mueve |
+| --- | --- | --- |
+| Entras a la tarea | `Todo` → `In Progress` | tú, a mano |
+| Abres el PR | `In Progress` → `In Review` | tú, a mano |
+| Alguien aprueba y el CI está verde | sigue en `In Review` | nadie |
+| Mergeas el PR | `In Review` → `Done` | tú, a mano |
+
+**Regla mental:** el PR pone los checks en verde y se aprueba solo. La tarjeta
+del tablero **solo la mueves tú**. Ni el merge ni la aprobación tocan el status.
+
+Y ojo con esto: **cerrar el PR no es lo mismo que cerrar la tarea.** Son dos
+cosas distintas que la gente confunde todo el tiempo.
+
+- El **PR** pasa a `MERGED` cuando lo mergeas. Eso GitHub lo hace solo.
+- El **issue** pasa a `CLOSED` si usaste `Closes #N`. También solo.
+- La **tarjeta** del tablero queda en `In Review` hasta que tú la muevas a
+  `Done`. Nada la mueve por ti.
+
+Por eso una tarea puede estar mergeada y seguir apareciendo como *In Review* en
+el kanban. Si te pasa, no es un bug: falta mover la tarjeta.
+
+## Los campos del issue y del tablero
+
+Son **dos sistemas distintos** y se confunden mucho:
+
+| | Issue Fields de la organización | Fields del Project |
+| --- | --- | --- |
+| Dónde se ven | En la barra lateral **del issue** | En el tablero (Kanban, Timeline, tabla) |
+| Configurados | `Priority`, `Effort` | `Status`, `Start Date`, `Target Date`, `Assignees`, `Labels`, `Milestone` |
+| Quién los pone | tú, en el issue | tú, en el tablero |
+
+**Las fechas viven en dos sitios, a propósito:** en el cuerpo del issue
+(`**Inicio:**` y `**Entrega:**`) y en el Project (`Start Date` / `Target Date`).
+Se mantienen iguales a mano, así que si mueves una, mueve la otra.
+
+El `Status` del Project es el único campo con valores de flujo:
+`Todo` → `In Progress` → `In Review` → `Done`. Ese es el que se mueve solo
+cuando te acuerdas.
 
 ## Qué se valida en tu máquina, y qué no
 

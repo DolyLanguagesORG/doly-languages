@@ -128,13 +128,21 @@ Política completa en [`docs/conventions/testing.md`](../docs/conventions/testin
 
 ## CI/CD
 
-3 workflows en `.github/workflows/`:
+Workflows en `.github/workflows/`:
 
-- `ci-backend.yml` — `verify` + e2e + build (status checks: `backend / unit-and-static`, `backend / e2e`, `backend / build`).
-- `openapi-guard.yml` — verifica que las respuestas 2xx usan el envelope correcto (status check: `backend / openapi-guard`).
-- `docs-link-check.yml` — verifica enlaces en `docs/`.
+| Workflow | Checks | Qué valida |
+| --- | --- | --- |
+| `ci-backend.yml` | `unit-and-static`, `e2e`, `build` | tipos, lint, formato, tests unitarios, e2e y compilación |
+| `docs-link-check.yml` | `link-check` | que no haya enlaces rotos en la documentación |
+| `openapi-guard.yml` | `openapi-guard` | que las respuestas 2xx usen el envelope correcto |
+| `pr-title.yml` | `pr-title`, `pr-target` | el título del PR y las ramas base y origen |
+| `pr-labels.yml` | `pr-labels` | copia al PR las etiquetas `sprint-*` y `area:*` del issue |
 
-Los checks son **obligatorios** para mergear PRs contra `dev` y `prod`.
+Siete checks son **obligatorios** para mergear contra `develop` y `main`:
+`unit-and-static`, `e2e`, `build`, `link-check`, `openapi-guard`, `pr-title` y
+`pr-target`. `pr-labels` es informativo: si falla avisa, pero no bloquea.
+
+`release.yml` no es un check de PR: corre al mergear en `main` y publica el tag.
 
 ## Conventions
 
