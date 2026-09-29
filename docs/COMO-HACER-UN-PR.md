@@ -213,6 +213,15 @@ issue.
 | `Fixes #6` / `Resolves #6` | Igual que `Closes` ✅ |
 | `Refs #6` | Solo deja una **mención**. El issue **no** se enlaza ni se cierra ❌ |
 
+> ⚠️ **Esto solo funciona si el PR apunta a `develop`, que es la rama por
+> defecto del repositorio.** GitHub lee las palabras clave de cierre
+> **únicamente** cuando el PR tiene como base la rama por defecto. Si el PR
+> apunta a `main`, la palabra se **ignora por completo**: no se crea ningún
+> enlace y el issue no se cierra ni aunque merges. Es el caso del PR de
+> release `develop` → `main`, así que **ese PR usa `Refs`, nunca `Closes`**.
+> Explicación completa en
+> [FLUJO-DE-TRABAJO.md](./FLUJO-DE-TRABAJO.md#por-que-develop-es-la-rama-por-defecto).
+
 Tres cosas que no funcionan y la gente intenta:
 
 - **Poner `Closes #6` en el issue.** No. Va en el PR.
@@ -220,6 +229,8 @@ Tres cosas que no funcionan y la gente intenta:
   creas ahora, mientras está abierto.
 - **Pegar un PR a otro PR.** Los PRs no se enlazan entre sí. Un PR se enlaza
   a un issue, y punto.
+- **Escribir `Closes` en un PR hacia `main`.** La palabra se ignora. Va en el
+  cuerpo, pero apuntando a `develop`.
 
 Si tu PR resuelve varias cosas, repite la palabra clave:
 
@@ -231,10 +242,15 @@ Refs #35
 
 > **Verifica que el enlace se creó.** Después de abrir el PR, entra al issue y
 > comprueba que el PR aparece en la sección **Development**. Si no aparece,
-> el enlace no se registró aunque la palabra clave esté escrita. En ese caso:
-> deja la palabra clave igual (es la sintaxis correcta) y, tras mergear, cierra
-> el issue a mano. También puedes enlazarlo desde el propio issue, en
-> **Development → Link a pull request**.
+> el enlace no se registró. Comprueba primero que el PR apunta a `develop`:
+> si apunta a `main`, no se va a registrar nunca, por muy bien escrita que esté
+> la palabra clave.
+>
+> Si el PR sí apunta a `develop` y el enlace sigue sin aparecer, deja la
+> palabra clave igual (es la sintaxis correcta) y enlázalo a mano desde el
+> issue, en **Development → Link a pull request**. Aun así el cierre al
+> mergear depende de que el PR llegue a la rama por defecto.
+
 
 ### 8. Espera los 7 checks
 
@@ -283,9 +299,11 @@ Botón **Squash and merge**. Al hacerlo:
 
 1. GitHub colapsa tu rama en **un solo commit** en `develop`.
 2. El título del PR se convierte en el mensaje de ese commit.
-3. **Tu issue se cierra solo** si usaste `Closes #N`.
+3. **Tu issue se cierra solo** si usaste `Closes #N` y el PR apuntaba a
+   `develop`. Si apunta a `main`, ciérralo tú.
 4. La rama se borra automáticamente.
 5. **No** se dispara ningún release: eso solo pasa al mergear en `main`.
+6. La tarjeta del tablero **no** se mueve sola: ponla en `Done` tú.
 
 ## El estado del tablero: cuándo va *In Review*
 

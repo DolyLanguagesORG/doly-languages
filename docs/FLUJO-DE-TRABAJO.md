@@ -54,12 +54,40 @@ Para el paso a paso de abrir un PR, ve a
 | `main` | **Producción.** Estable entre releases. | Solo `develop` o `hotfix/*` | **Dispara `release.yml`**: tag y GitHub Release |
 | `hotfix/*` | Corrección urgente sobre producción. | — | Sale de `main`, luego se lleva a `develop` |
 
-`main` es la rama por defecto del repositorio y la única que genera releases.
-Ese es el motivo de que esté tan protegida: tocarla es un acto, no un merge
-rutinario.
+`main` es la única que genera releases. Ese es el motivo de que esté tan
+protegida: tocarla es un acto, no un merge rutinario.
 
 `develop` recibe todo el trabajo y por eso es la que se abre y se cierra
 constantemente. Nunca debe estar en un estado que no se pueda construir.
+
+### Por qué `develop` es la rama por defecto
+
+`develop` es la rama por defecto del repositorio, y `main` no lo es. Esto no es
+un detalle menor: de la rama por defecto dependen cosas que **no funcionan si no
+coincide con la rama de trabajo**.
+
+| Depende de la default | Consecuencia |
+| --- | --- |
+| **Palabras clave de cierre** (`Closes`, `Fixes`, `Resolves`) | GitHub solo las interpreta si el PR apunta a la default. Con `main` como default, ningún PR a `develop` cerraba su issue. |
+| **Enlaces issue ↔ PR** (sección *Development*, campo *Linked pull requests* del Project) | Con `main` como default no se creaban, y el campo quedaba siempre vacío. |
+| **Workflows con `schedule` o `workflow_dispatch`** | Solo se activan si el archivo del workflow existe en la default. |
+
+Por eso se invirtió. `develop` es el tronco real del proyecto: es donde se
+integra el trabajo y donde siempre se puede construir. `main` es un artefacto
+de release, y para eso ya tiene su propio disparador (`release.yml`), que no
+depende de la default.
+
+**El único costo:** el PR de release `develop` → `main` apunta a una rama que
+ya no es la default, así que ahí la palabra clave se ignora. Ese PR debe usar
+`Refs #N`, nunca `Closes #N`. Y el release sigue disparándose igual, porque
+`release.yml` filtra por `push` a `main` de forma explícita.
+
+> ¿Por qué la convención de GitHub es que la default sea `main`? Porque su
+> modelo de trabajo ([GitHub Flow](https://docs.github.com/en/get-started/using-github/github-flow))
+> tiene **una sola rama**, que es a la vez la de trabajo y la de release. Ahí no
+> hay conflicto. Este repositorio tiene dos ramas vivas, y la default tiene que
+> ser la del trabajo.
+
 
 ## El viaje de una tarea
 
@@ -141,8 +169,9 @@ es manual**.
 Rama nueva desde `develop`, commits, y el PR. Todo eso está detallado en
 [COMO-HACER-UN-PR.md](./COMO-HACER-UN-PR.md).
 
-Lo que conecta el PR con la planificación es la palabra `Closes #N` en el
-cuerpo del PR. Al mergear, el issue se cierra.
+    Lo que conecta el PR con la planificación es la palabra `Closes #N` en el
+    cuerpo del PR. Al mergear en `develop`, el issue se cierra solo. Ese PR
+    apunta a la rama por defecto, que es lo que hace que la palabra funcione.
 
 ### 5. Se revisa a fin de sprint
 
@@ -243,7 +272,7 @@ Corrección urgente sobre producción:
 git switch main
 git switch -c hotfix/logo-roto
 # ... commitea el fix mínimo ...
-gh pr create --base main --title "fix(ui): corrige el logo" --body "Closes #52"
+    gh pr create --base main --title "fix(ui): corrige el logo" --body "Refs #52"
 ```
 
 Después de mergearlo en `main`, hay que devolverlo a `develop`, o el fix

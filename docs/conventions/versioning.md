@@ -61,9 +61,11 @@ gh pr create --base develop \
   --title "feat(users): persist study preferences in user_settings" \
   --body "Closes #12"
 
-# 3. Cuando toca release: PR de develop hacia main
-gh pr create --base main --title "feat(users): release v0.2.0" \
-  --body "Integra el trabajo de desarrollo hasta la fecha."
+    # 3. Cuando toca release: PR de develop hacia main.
+    #    Ojo: `main` no es la rama por defecto, asi que `Closes` se ignoraria
+    #    y los issues quedarian abiertos. Ahi va `Refs`.
+    gh pr create --base main --title "feat(users): release v0.2.0" \
+      --body "Refs #12 -- integra el trabajo de desarrollo hasta la fecha."
 ```
 
 Al mergear ese PR, el workflow calcula el bump, crea el tag y publica el
