@@ -251,6 +251,32 @@ Refs #35
 > issue, en **Development → Link a pull request**. Aun así el cierre al
 > mergear depende de que el PR llegue a la rama por defecto.
 
+#### Si tienes que verificarlo por API, mira el campo correcto
+
+Los dos campos de la API **no coinciden**, y el que se consulta primero miente:
+
+| Campo | Dónde | Qué dice |
+| --- | --- | --- |
+| `closingIssuesReferences` | En el **PR** | Frecuentemente `[]` aunque el enlace **sí** exista. **No confíes en él.** |
+| `closedByPullRequestsReferences` | En el **issue** | Dice la verdad: lista los PRs que cerrarán ese issue. |
+
+Y el evento `cross-referenced` en el timeline aparece siempre, incluso sin
+enlace real. **La ausencia de un evento `connected` no prueba que falte el
+enlace**: en este repo el enlace se registró sin que apareciera ese evento.
+
+Para comprobarlo de verdad:
+
+```bash
+# correcto: pregunta al issue
+gh issue view 6 --json closedByPullRequestsReferences \
+  --jq '.closedByPullRequestsReferences[].number'
+
+# NO sirve: devuelve [] aunque el enlace exista
+gh pr view 45 --json closingIssuesReferences \
+  --jq '.closingIssuesReferences[].number'
+```
+
+
 
 ### 8. Espera los 7 checks
 
