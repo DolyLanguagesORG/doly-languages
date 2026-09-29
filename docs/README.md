@@ -38,7 +38,7 @@ actualmente deshabilitado) y la infraestructura dockerizada.
 - Mobile: pausado hasta nuevo aviso.
 - Release vigente: `v0.1.0`; la entrega de cierre del proyecto está prevista
   para `v1.0.0`.
-- La planificación vive en GitHub: [Project con Kanban y Timeline](https://github.com/users/XxjesusalbertoxX/projects/3),
+- La planificación vive en GitHub: [Project con Kanban y Timeline](https://github.com/orgs/DolyLanguagesORG/projects/1),
   [issues](https://github.com/DolyLanguagesORG/doly-languages/issues),
   [milestones](https://github.com/DolyLanguagesORG/doly-languages/milestones) y el
   [hilo de standup diario](https://github.com/DolyLanguagesORG/doly-languages/discussions/39).
