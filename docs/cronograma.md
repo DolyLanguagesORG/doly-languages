@@ -2,7 +2,7 @@
 
 Este documento es la fuente de verdad escrita del cronograma. La vista
 interactiva (Kanban y Timeline) vive en el [Project de GitHub](
-https://github.com/users/XxjesusalbertoxX/projects/3), y el detalle de cada
+https://github.com/orgs/DolyLanguagesORG/projects/1), y el detalle de cada
 tarea en los issues del repositorio.
 
 > **Alcance:** este cronograma cubre el **producto completo**, de principio a
@@ -21,7 +21,7 @@ tarea en los issues del repositorio.
 
 ## Dónde ver el avance
 
-- **Kanban y Timeline**: [Project — DolyNation Plan de Desarrollo (2026)](https://github.com/users/XxjesusalbertoxX/projects/3)
+- **Kanban y Timeline**: [Project — DolyNation Plan de Desarrollo (2026)](https://github.com/orgs/DolyLanguagesORG/projects/1)
   - Vista *Tablero Kanban*: agrupada por `Status` (Todo / In Progress / In Review / Done)
   - Vista *Timeline del producto*: eje de tiempo con `Start Date` → `Target Date`
   - Vista *Todos los entregables*: tabla con las 33 tareas

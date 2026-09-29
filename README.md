@@ -36,7 +36,7 @@ IA y evalúa las respuestas del usuario en tiempo real.
 | Qué | Dónde |
 | --- | --- |
 | Plan del proyecto | [`docs/cronograma.md`](./docs/cronograma.md) |
-| Tablero Kanban y Timeline | [Project de GitHub](https://github.com/users/XxjesusalbertoxX/projects/3) |
+| Tablero Kanban y Timeline | [Project de GitHub](https://github.com/orgs/DolyLanguagesORG/projects/1) |
 | Tareas (33 entregables) | [Issues del repositorio](https://github.com/DolyLanguagesORG/doly-languages/issues) |
 | Cierre de cada sprint | [Milestones](https://github.com/DolyLanguagesORG/doly-languages/milestones) |
 | Reporte diario | [Hilo de standup](https://github.com/DolyLanguagesORG/doly-languages/discussions/39) |
