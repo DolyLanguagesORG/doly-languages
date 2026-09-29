@@ -57,15 +57,15 @@ referencia para pasar de uno a otro.
 
 | # | Issue | Tarea | Responsable | Inicio | Entrega |
 | --: | :---: | --- | --- | :---: | :---: |
-| 1 | [#6](https://github.com/DolyLanguagesORG/doly-languages/issues/6) | chore(repo): configurar main/develop, branch protection, plantillas y CI | Jesús (SM) | 05 Oct 2026 | 06 Oct 2026 |
-| 2 | [#7](https://github.com/DolyLanguagesORG/doly-languages/issues/7) | feat(setup): arquitectura NestJS y conexión a base de datos con entidad User | Azael | 05 Oct 2026 | 08 Oct 2026 |
-| 3 | [#8](https://github.com/DolyLanguagesORG/doly-languages/issues/8) | feat(setup): proyecto Next.js con Tailwind, layout base y temas | Juan | 05 Oct 2026 | 07 Oct 2026 |
-| 4 | [#9](https://github.com/DolyLanguagesORG/doly-languages/issues/9) | feat(auth): hashing con Argon2 y estrategia JWT en NestJS | Azael | 09 Oct 2026 | 12 Oct 2026 |
-| 5 | [#10](https://github.com/DolyLanguagesORG/doly-languages/issues/10) | feat(auth): DTOs de validación y endpoints /auth/register y /auth/login | Elías | 09 Oct 2026 | 12 Oct 2026 |
-| 6 | [#11](https://github.com/DolyLanguagesORG/doly-languages/issues/11) | feat(auth): vistas de Login y Registro en Next.js | Juan | 08 Oct 2026 | 12 Oct 2026 |
-| 7 | [#12](https://github.com/DolyLanguagesORG/doly-languages/issues/12) | feat(user): endpoints de consulta y actualización de /user/profile | Elías | 13 Oct 2026 | 15 Oct 2026 |
-| 8 | [#13](https://github.com/DolyLanguagesORG/doly-languages/issues/13) | feat(user): vista de perfil e integración con el estado de sesión | Juan | 13 Oct 2026 | 16 Oct 2026 |
-| 9 | [#14](https://github.com/DolyLanguagesORG/doly-languages/issues/14) | test(auth): pruebas de integración del Sprint 1 y revisión de PRs | Jesús (SM) | 16 Oct 2026 | 18 Oct 2026 |
+| 1 | [#6](https://github.com/DolyLanguagesORG/doly-languages/issues/6) | Configuración del repositorio: main/develop, branch protection, plantillas de PR/issue y GitHub Actions (CI) | Jesús (SM) | 05 Oct 2026 | 06 Oct 2026 |
+| 2 | [#7](https://github.com/DolyLanguagesORG/doly-languages/issues/7) | Setup de arquitectura NestJS, conexión a base de datos (PostgreSQL/MongoDB) y entidad User | Azael | 05 Oct 2026 | 08 Oct 2026 |
+| 3 | [#8](https://github.com/DolyLanguagesORG/doly-languages/issues/8) | Setup de proyecto Next.js con Tailwind CSS, layout base y temas de la interfaz | Juan | 05 Oct 2026 | 07 Oct 2026 |
+| 4 | [#9](https://github.com/DolyLanguagesORG/doly-languages/issues/9) | Servicio de hash criptográfico (bcrypt/Argon2) y estrategia de autenticación JWT en NestJS | Azael | 09 Oct 2026 | 12 Oct 2026 |
+| 5 | [#10](https://github.com/DolyLanguagesORG/doly-languages/issues/10) | DTOs de validación de registro/login y endpoints de autenticación (/auth/register, /auth/login) | Elías | 09 Oct 2026 | 12 Oct 2026 |
+| 6 | [#11](https://github.com/DolyLanguagesORG/doly-languages/issues/11) | Maquetado e integración de vistas de login y registro en Next.js | Juan | 08 Oct 2026 | 12 Oct 2026 |
+| 7 | [#12](https://github.com/DolyLanguagesORG/doly-languages/issues/12) | Endpoints para consultar y actualizar el perfil de usuario (/user/profile) | Elías | 13 Oct 2026 | 15 Oct 2026 |
+| 8 | [#13](https://github.com/DolyLanguagesORG/doly-languages/issues/13) | Vista del perfil de usuario e integración con el estado de sesión en Next.js | Juan | 13 Oct 2026 | 16 Oct 2026 |
+| 9 | [#14](https://github.com/DolyLanguagesORG/doly-languages/issues/14) | Pruebas de integración del Sprint 1, corrección de bugs y revisión de PRs hacia develop | Jesús (SM) | 16 Oct 2026 | 18 Oct 2026 |
 
 ---
 
@@ -78,13 +78,13 @@ referencia para pasar de uno a otro.
 
 | # | Issue | Tarea | Responsable | Inicio | Entrega |
 | --: | :---: | --- | --- | :---: | :---: |
-| 10 | [#15](https://github.com/DolyLanguagesORG/doly-languages/issues/15) | feat(ai): módulo de servicios para OpenAI/Gemini y arquitectura de prompts | Azael | 19 Oct 2026 | 23 Oct 2026 |
-| 11 | [#16](https://github.com/DolyLanguagesORG/doly-languages/issues/16) | feat(settings): endpoints de /settings/categories y /settings/languages | Elías | 19 Oct 2026 | 22 Oct 2026 |
-| 12 | [#17](https://github.com/DolyLanguagesORG/doly-languages/issues/17) | feat(settings): formulario de parámetros de estudio en Next.js | Juan | 19 Oct 2026 | 23 Oct 2026 |
-| 13 | [#18](https://github.com/DolyLanguagesORG/doly-languages/issues/18) | feat(cache): caché de lecturas para parámetros equivalentes (RNF-05) | Jesús (SM) | 22 Oct 2026 | 26 Oct 2026 |
-| 14 | [#19](https://github.com/DolyLanguagesORG/doly-languages/issues/19) | feat(reader): visor inmersivo de lectura | Juan | 24 Oct 2026 | 28 Oct 2026 |
-| 15 | [#20](https://github.com/DolyLanguagesORG/doly-languages/issues/20) | feat(content): endpoint /content/generate | Azael + Elías | 24 Oct 2026 | 28 Oct 2026 |
-| 16 | [#21](https://github.com/DolyLanguagesORG/doly-languages/issues/21) | feat(study): flujo completo parámetros → IA → visor | Jesús (SM) + Juan | 29 Oct 2026 | 01 Nov 2026 |
+| 10 | [#15](https://github.com/DolyLanguagesORG/doly-languages/issues/15) | Módulo de servicios en NestJS para integración con la API de IA (OpenAI/Gemini) y arquitectura de prompts | Azael | 19 Oct 2026 | 23 Oct 2026 |
+| 11 | [#16](https://github.com/DolyLanguagesORG/doly-languages/issues/16) | Endpoints para selección y guardado de categorías e idiomas (/settings/categories, /settings/languages) | Elías | 19 Oct 2026 | 22 Oct 2026 |
+| 12 | [#17](https://github.com/DolyLanguagesORG/doly-languages/issues/17) | Formulario de selección de parámetros de estudio (idioma, categoría, dificultad, longitud) en Next.js | Juan | 19 Oct 2026 | 23 Oct 2026 |
+| 13 | [#18](https://github.com/DolyLanguagesORG/doly-languages/issues/18) | Servicio de caché para respuestas de lectura con parámetros equivalentes (RNF-05) | Jesús (SM) | 22 Oct 2026 | 26 Oct 2026 |
+| 14 | [#19](https://github.com/DolyLanguagesORG/doly-languages/issues/19) | Visor inmersivo de lectura (diseño enfocado en la legibilidad) en Next.js | Juan | 24 Oct 2026 | 28 Oct 2026 |
+| 15 | [#20](https://github.com/DolyLanguagesORG/doly-languages/issues/20) | Endpoint de generación de lectura basada en los parámetros seleccionados (/content/generate) | Azael + Elías | 24 Oct 2026 | 28 Oct 2026 |
+| 16 | [#21](https://github.com/DolyLanguagesORG/doly-languages/issues/21) | Conexión del flujo completo: formulario de parámetros → generación IA → visor | Jesús (SM) + Juan | 29 Oct 2026 | 01 Nov 2026 |
 
 ---
 
@@ -97,13 +97,13 @@ referencia para pasar de uno a otro.
 
 | # | Issue | Tarea | Responsable | Inicio | Entrega |
 | --: | :---: | --- | --- | :---: | :---: |
-| 17 | [#22](https://github.com/DolyLanguagesORG/doly-languages/issues/22) | feat(reader): captura de selección de texto en el visor | Juan | 02 Nov 2026 | 05 Nov 2026 |
-| 18 | [#23](https://github.com/DolyLanguagesORG/doly-languages/issues/23) | feat(dictionary): endpoint de consulta contextual de vocabulario a la IA | Azael | 02 Nov 2026 | 06 Nov 2026 |
-| 19 | [#24](https://github.com/DolyLanguagesORG/doly-languages/issues/24) | feat(dictionary): pop-up de diccionario contextual con TTS | Juan | 06 Nov 2026 | 09 Nov 2026 |
-| 20 | [#25](https://github.com/DolyLanguagesORG/doly-languages/issues/25) | feat(summary): área de redacción libre de resumen y envío de evaluación | Juan + Elías | 07 Nov 2026 | 10 Nov 2026 |
-| 21 | [#26](https://github.com/DolyLanguagesORG/doly-languages/issues/26) | feat(nlp): servicio de evaluación de resúmenes por PNL con feedback | Jesús (SM) + Azael | 06 Nov 2026 | 11 Nov 2026 |
-| 22 | [#27](https://github.com/DolyLanguagesORG/doly-languages/issues/27) | feat(evaluation): endpoint /evaluation/submit con persistencia del resultado | Elías | 10 Nov 2026 | 13 Nov 2026 |
-| 23 | [#28](https://github.com/DolyLanguagesORG/doly-languages/issues/28) | test(sprint3): pruebas de vocabulario y evaluación de resúmenes por PNL | Jesús (SM) | 13 Nov 2026 | 15 Nov 2026 |
+| 17 | [#22](https://github.com/DolyLanguagesORG/doly-languages/issues/22) | Captura e interacción de selección de texto dentro del visor de lectura en Next.js | Juan | 02 Nov 2026 | 05 Nov 2026 |
+| 18 | [#23](https://github.com/DolyLanguagesORG/doly-languages/issues/23) | Endpoint de consulta contextual de vocabulario a la IA (significado, definición, ejemplos, oración original) | Azael | 02 Nov 2026 | 06 Nov 2026 |
+| 19 | [#24](https://github.com/DolyLanguagesORG/doly-languages/issues/24) | Componente emergente (pop-up) de diccionario contextual e integración de audio corto (TTS) | Juan | 06 Nov 2026 | 09 Nov 2026 |
+| 20 | [#25](https://github.com/DolyLanguagesORG/doly-languages/issues/25) | Componente de área de redacción libre de resumen y envío de evaluación en Next.js | Juan + Elías | 07 Nov 2026 | 10 Nov 2026 |
+| 21 | [#26](https://github.com/DolyLanguagesORG/doly-languages/issues/26) | Servicio de evaluación y calificación por PNL en NestJS (cobertura, precisión, coherencia) con feedback | Jesús (SM) + Azael | 06 Nov 2026 | 11 Nov 2026 |
+| 22 | [#27](https://github.com/DolyLanguagesORG/doly-languages/issues/27) | Endpoint de procesamiento y almacenamiento del resultado de la evaluación (/evaluation/submit) | Elías | 10 Nov 2026 | 13 Nov 2026 |
+| 23 | [#28](https://github.com/DolyLanguagesORG/doly-languages/issues/28) | Pruebas del módulo de vocabulario y evaluación de resúmenes por PNL | Jesús (SM) | 13 Nov 2026 | 15 Nov 2026 |
 
 ---
 
@@ -116,12 +116,12 @@ referencia para pasar de uno a otro.
 
 | # | Issue | Tarea | Responsable | Inicio | Entrega |
 | --: | :---: | --- | --- | :---: | :---: |
-| 24 | [#29](https://github.com/DolyLanguagesORG/doly-languages/issues/29) | feat(streak): cálculo de racha diaria y asignación de puntos | Azael | 16 Nov 2026 | 19 Nov 2026 |
-| 25 | [#30](https://github.com/DolyLanguagesORG/doly-languages/issues/30) | feat(history): endpoints de consulta de historial de actividades | Elías | 16 Nov 2026 | 20 Nov 2026 |
-| 26 | [#31](https://github.com/DolyLanguagesORG/doly-languages/issues/31) | feat(dashboard): dashboard de usuario con métricas, racha y gráfica de puntos | Juan | 19 Nov 2026 | 24 Nov 2026 |
-| 27 | [#32](https://github.com/DolyLanguagesORG/doly-languages/issues/32) | feat(admin): endpoints /admin/categories y supervisión de usuarios | Elías | 21 Nov 2026 | 25 Nov 2026 |
-| 28 | [#33](https://github.com/DolyLanguagesORG/doly-languages/issues/33) | feat(admin): vista del panel administrativo básico | Juan + Jesús (SM) | 24 Nov 2026 | 27 Nov 2026 |
-| 29 | [#34](https://github.com/DolyLanguagesORG/doly-languages/issues/34) | refactor(review): revisión general de código y limpieza de endpoints | Jesús (SM) | 27 Nov 2026 | 29 Nov 2026 |
+| 24 | [#29](https://github.com/DolyLanguagesORG/doly-languages/issues/29) | Lógica de cálculo de racha diaria (días consecutivos de actividad) y asignación de puntos en NestJS | Azael | 16 Nov 2026 | 19 Nov 2026 |
+| 25 | [#30](https://github.com/DolyLanguagesORG/doly-languages/issues/30) | Endpoints de consulta de historial de actividades (lecturas, palabras consultadas, calificaciones) | Elías | 16 Nov 2026 | 20 Nov 2026 |
+| 26 | [#31](https://github.com/DolyLanguagesORG/doly-languages/issues/31) | Dashboard de usuario en Next.js (métricas, contador de racha, historial y gráfica de puntos) | Juan | 19 Nov 2026 | 24 Nov 2026 |
+| 27 | [#32](https://github.com/DolyLanguagesORG/doly-languages/issues/32) | Endpoints para gestión administrativa de categorías globales y supervisión de usuarios (/admin/categories) | Elías | 21 Nov 2026 | 25 Nov 2026 |
+| 28 | [#33](https://github.com/DolyLanguagesORG/doly-languages/issues/33) | Vista del panel administrativo básico en Next.js | Juan + Jesús (SM) | 24 Nov 2026 | 27 Nov 2026 |
+| 29 | [#34](https://github.com/DolyLanguagesORG/doly-languages/issues/34) | Revisión general de código, limpieza de endpoints y merge a develop | Jesús (SM) | 27 Nov 2026 | 29 Nov 2026 |
 
 ---
 
@@ -134,10 +134,10 @@ referencia para pasar de uno a otro.
 
 | # | Issue | Tarea | Responsable | Inicio | Entrega |
 | --: | :---: | --- | --- | :---: | :---: |
-| 30 | [#35](https://github.com/DolyLanguagesORG/doly-languages/issues/35) | test(usability): pruebas de usabilidad y diseño responsivo | Juan | 30 Nov 2026 | 03 Dic 2026 |
-| 31 | [#36](https://github.com/DolyLanguagesORG/doly-languages/issues/36) | test(hardening): rendimiento, modo degradado de la IA y validación de seguridad | Azael + Elías | 30 Nov 2026 | 04 Dic 2026 |
-| 32 | [#37](https://github.com/DolyLanguagesORG/doly-languages/issues/37) | chore(release): PR final develop→main, tag v1.0.0 y verificación de CI/CD | Jesús (SM) | 04 Dic 2026 | 06 Dic 2026 |
-| 33 | [#38](https://github.com/DolyLanguagesORG/doly-languages/issues/38) | docs(release): documentación final, capturas del sistema y presentación | Todo el equipo | 06 Dic 2026 | 10 Dic 2026 |
+| 30 | [#35](https://github.com/DolyLanguagesORG/doly-languages/issues/35) | Pruebas de usabilidad y revisión de diseño responsivo (móvil/desktop) | Juan | 30 Nov 2026 | 03 Dic 2026 |
+| 31 | [#36](https://github.com/DolyLanguagesORG/doly-languages/issues/36) | Pruebas de rendimiento, manejo de errores de la API de IA (modo degradado) y validación de seguridad | Azael + Elías | 30 Nov 2026 | 04 Dic 2026 |
+| 32 | [#37](https://github.com/DolyLanguagesORG/doly-languages/issues/37) | Creación del pull request final de develop hacia main, tagging v1.0.0 y verificación de CI/CD | Jesús (SM) | 04 Dic 2026 | 06 Dic 2026 |
+| 33 | [#38](https://github.com/DolyLanguagesORG/doly-languages/issues/38) | Preparación de la documentación final del repositorio, capturas del sistema y presentación del proyecto | Todo el equipo | 06 Dic 2026 | 10 Dic 2026 |
 
 ---
 
@@ -145,39 +145,39 @@ referencia para pasar de uno a otro.
 
 | Cronograma | GitHub | Tarea | Sprint |
 | --: | :---: | --- | --: |
-| 1 | [#6](https://github.com/DolyLanguagesORG/doly-languages/issues/6) | chore(repo): configurar main/develop, branch protection, plantillas y CI | 1 |
-| 2 | [#7](https://github.com/DolyLanguagesORG/doly-languages/issues/7) | feat(setup): arquitectura NestJS y conexión a base de datos con entidad User | 1 |
-| 3 | [#8](https://github.com/DolyLanguagesORG/doly-languages/issues/8) | feat(setup): proyecto Next.js con Tailwind, layout base y temas | 1 |
-| 4 | [#9](https://github.com/DolyLanguagesORG/doly-languages/issues/9) | feat(auth): hashing con Argon2 y estrategia JWT en NestJS | 1 |
-| 5 | [#10](https://github.com/DolyLanguagesORG/doly-languages/issues/10) | feat(auth): DTOs de validación y endpoints /auth/register y /auth/login | 1 |
-| 6 | [#11](https://github.com/DolyLanguagesORG/doly-languages/issues/11) | feat(auth): vistas de Login y Registro en Next.js | 1 |
-| 7 | [#12](https://github.com/DolyLanguagesORG/doly-languages/issues/12) | feat(user): endpoints de consulta y actualización de /user/profile | 1 |
-| 8 | [#13](https://github.com/DolyLanguagesORG/doly-languages/issues/13) | feat(user): vista de perfil e integración con el estado de sesión | 1 |
-| 9 | [#14](https://github.com/DolyLanguagesORG/doly-languages/issues/14) | test(auth): pruebas de integración del Sprint 1 y revisión de PRs | 1 |
-| 10 | [#15](https://github.com/DolyLanguagesORG/doly-languages/issues/15) | feat(ai): módulo de servicios para OpenAI/Gemini y arquitectura de prompts | 2 |
-| 11 | [#16](https://github.com/DolyLanguagesORG/doly-languages/issues/16) | feat(settings): endpoints de /settings/categories y /settings/languages | 2 |
-| 12 | [#17](https://github.com/DolyLanguagesORG/doly-languages/issues/17) | feat(settings): formulario de parámetros de estudio en Next.js | 2 |
-| 13 | [#18](https://github.com/DolyLanguagesORG/doly-languages/issues/18) | feat(cache): caché de lecturas para parámetros equivalentes (RNF-05) | 2 |
-| 14 | [#19](https://github.com/DolyLanguagesORG/doly-languages/issues/19) | feat(reader): visor inmersivo de lectura | 2 |
-| 15 | [#20](https://github.com/DolyLanguagesORG/doly-languages/issues/20) | feat(content): endpoint /content/generate | 2 |
-| 16 | [#21](https://github.com/DolyLanguagesORG/doly-languages/issues/21) | feat(study): flujo completo parámetros → IA → visor | 2 |
-| 17 | [#22](https://github.com/DolyLanguagesORG/doly-languages/issues/22) | feat(reader): captura de selección de texto en el visor | 3 |
-| 18 | [#23](https://github.com/DolyLanguagesORG/doly-languages/issues/23) | feat(dictionary): endpoint de consulta contextual de vocabulario a la IA | 3 |
-| 19 | [#24](https://github.com/DolyLanguagesORG/doly-languages/issues/24) | feat(dictionary): pop-up de diccionario contextual con TTS | 3 |
-| 20 | [#25](https://github.com/DolyLanguagesORG/doly-languages/issues/25) | feat(summary): área de redacción libre de resumen y envío de evaluación | 3 |
-| 21 | [#26](https://github.com/DolyLanguagesORG/doly-languages/issues/26) | feat(nlp): servicio de evaluación de resúmenes por PNL con feedback | 3 |
-| 22 | [#27](https://github.com/DolyLanguagesORG/doly-languages/issues/27) | feat(evaluation): endpoint /evaluation/submit con persistencia del resultado | 3 |
-| 23 | [#28](https://github.com/DolyLanguagesORG/doly-languages/issues/28) | test(sprint3): pruebas de vocabulario y evaluación de resúmenes por PNL | 3 |
-| 24 | [#29](https://github.com/DolyLanguagesORG/doly-languages/issues/29) | feat(streak): cálculo de racha diaria y asignación de puntos | 4 |
-| 25 | [#30](https://github.com/DolyLanguagesORG/doly-languages/issues/30) | feat(history): endpoints de consulta de historial de actividades | 4 |
-| 26 | [#31](https://github.com/DolyLanguagesORG/doly-languages/issues/31) | feat(dashboard): dashboard de usuario con métricas, racha y gráfica de puntos | 4 |
-| 27 | [#32](https://github.com/DolyLanguagesORG/doly-languages/issues/32) | feat(admin): endpoints /admin/categories y supervisión de usuarios | 4 |
-| 28 | [#33](https://github.com/DolyLanguagesORG/doly-languages/issues/33) | feat(admin): vista del panel administrativo básico | 4 |
-| 29 | [#34](https://github.com/DolyLanguagesORG/doly-languages/issues/34) | refactor(review): revisión general de código y limpieza de endpoints | 4 |
-| 30 | [#35](https://github.com/DolyLanguagesORG/doly-languages/issues/35) | test(usability): pruebas de usabilidad y diseño responsivo | 5 |
-| 31 | [#36](https://github.com/DolyLanguagesORG/doly-languages/issues/36) | test(hardening): rendimiento, modo degradado de la IA y validación de seguridad | 5 |
-| 32 | [#37](https://github.com/DolyLanguagesORG/doly-languages/issues/37) | chore(release): PR final develop→main, tag v1.0.0 y verificación de CI/CD | 5 |
-| 33 | [#38](https://github.com/DolyLanguagesORG/doly-languages/issues/38) | docs(release): documentación final, capturas del sistema y presentación | 5 |
+| 1 | [#6](https://github.com/DolyLanguagesORG/doly-languages/issues/6) | Configuración del repositorio: main/develop, branch protection, plantillas de PR/issue y GitHub Actions (CI) | 1 |
+| 2 | [#7](https://github.com/DolyLanguagesORG/doly-languages/issues/7) | Setup de arquitectura NestJS, conexión a base de datos (PostgreSQL/MongoDB) y entidad User | 1 |
+| 3 | [#8](https://github.com/DolyLanguagesORG/doly-languages/issues/8) | Setup de proyecto Next.js con Tailwind CSS, layout base y temas de la interfaz | 1 |
+| 4 | [#9](https://github.com/DolyLanguagesORG/doly-languages/issues/9) | Servicio de hash criptográfico (bcrypt/Argon2) y estrategia de autenticación JWT en NestJS | 1 |
+| 5 | [#10](https://github.com/DolyLanguagesORG/doly-languages/issues/10) | DTOs de validación de registro/login y endpoints de autenticación (/auth/register, /auth/login) | 1 |
+| 6 | [#11](https://github.com/DolyLanguagesORG/doly-languages/issues/11) | Maquetado e integración de vistas de login y registro en Next.js | 1 |
+| 7 | [#12](https://github.com/DolyLanguagesORG/doly-languages/issues/12) | Endpoints para consultar y actualizar el perfil de usuario (/user/profile) | 1 |
+| 8 | [#13](https://github.com/DolyLanguagesORG/doly-languages/issues/13) | Vista del perfil de usuario e integración con el estado de sesión en Next.js | 1 |
+| 9 | [#14](https://github.com/DolyLanguagesORG/doly-languages/issues/14) | Pruebas de integración del Sprint 1, corrección de bugs y revisión de PRs hacia develop | 1 |
+| 10 | [#15](https://github.com/DolyLanguagesORG/doly-languages/issues/15) | Módulo de servicios en NestJS para integración con la API de IA (OpenAI/Gemini) y arquitectura de prompts | 2 |
+| 11 | [#16](https://github.com/DolyLanguagesORG/doly-languages/issues/16) | Endpoints para selección y guardado de categorías e idiomas (/settings/categories, /settings/languages) | 2 |
+| 12 | [#17](https://github.com/DolyLanguagesORG/doly-languages/issues/17) | Formulario de selección de parámetros de estudio (idioma, categoría, dificultad, longitud) en Next.js | 2 |
+| 13 | [#18](https://github.com/DolyLanguagesORG/doly-languages/issues/18) | Servicio de caché para respuestas de lectura con parámetros equivalentes (RNF-05) | 2 |
+| 14 | [#19](https://github.com/DolyLanguagesORG/doly-languages/issues/19) | Visor inmersivo de lectura (diseño enfocado en la legibilidad) en Next.js | 2 |
+| 15 | [#20](https://github.com/DolyLanguagesORG/doly-languages/issues/20) | Endpoint de generación de lectura basada en los parámetros seleccionados (/content/generate) | 2 |
+| 16 | [#21](https://github.com/DolyLanguagesORG/doly-languages/issues/21) | Conexión del flujo completo: formulario de parámetros → generación IA → visor | 2 |
+| 17 | [#22](https://github.com/DolyLanguagesORG/doly-languages/issues/22) | Captura e interacción de selección de texto dentro del visor de lectura en Next.js | 3 |
+| 18 | [#23](https://github.com/DolyLanguagesORG/doly-languages/issues/23) | Endpoint de consulta contextual de vocabulario a la IA (significado, definición, ejemplos, oración original) | 3 |
+| 19 | [#24](https://github.com/DolyLanguagesORG/doly-languages/issues/24) | Componente emergente (pop-up) de diccionario contextual e integración de audio corto (TTS) | 3 |
+| 20 | [#25](https://github.com/DolyLanguagesORG/doly-languages/issues/25) | Componente de área de redacción libre de resumen y envío de evaluación en Next.js | 3 |
+| 21 | [#26](https://github.com/DolyLanguagesORG/doly-languages/issues/26) | Servicio de evaluación y calificación por PNL en NestJS (cobertura, precisión, coherencia) con feedback | 3 |
+| 22 | [#27](https://github.com/DolyLanguagesORG/doly-languages/issues/27) | Endpoint de procesamiento y almacenamiento del resultado de la evaluación (/evaluation/submit) | 3 |
+| 23 | [#28](https://github.com/DolyLanguagesORG/doly-languages/issues/28) | Pruebas del módulo de vocabulario y evaluación de resúmenes por PNL | 3 |
+| 24 | [#29](https://github.com/DolyLanguagesORG/doly-languages/issues/29) | Lógica de cálculo de racha diaria (días consecutivos de actividad) y asignación de puntos en NestJS | 4 |
+| 25 | [#30](https://github.com/DolyLanguagesORG/doly-languages/issues/30) | Endpoints de consulta de historial de actividades (lecturas, palabras consultadas, calificaciones) | 4 |
+| 26 | [#31](https://github.com/DolyLanguagesORG/doly-languages/issues/31) | Dashboard de usuario en Next.js (métricas, contador de racha, historial y gráfica de puntos) | 4 |
+| 27 | [#32](https://github.com/DolyLanguagesORG/doly-languages/issues/32) | Endpoints para gestión administrativa de categorías globales y supervisión de usuarios (/admin/categories) | 4 |
+| 28 | [#33](https://github.com/DolyLanguagesORG/doly-languages/issues/33) | Vista del panel administrativo básico en Next.js | 4 |
+| 29 | [#34](https://github.com/DolyLanguagesORG/doly-languages/issues/34) | Revisión general de código, limpieza de endpoints y merge a develop | 4 |
+| 30 | [#35](https://github.com/DolyLanguagesORG/doly-languages/issues/35) | Pruebas de usabilidad y revisión de diseño responsivo (móvil/desktop) | 5 |
+| 31 | [#36](https://github.com/DolyLanguagesORG/doly-languages/issues/36) | Pruebas de rendimiento, manejo de errores de la API de IA (modo degradado) y validación de seguridad | 5 |
+| 32 | [#37](https://github.com/DolyLanguagesORG/doly-languages/issues/37) | Creación del pull request final de develop hacia main, tagging v1.0.0 y verificación de CI/CD | 5 |
+| 33 | [#38](https://github.com/DolyLanguagesORG/doly-languages/issues/38) | Preparación de la documentación final del repositorio, capturas del sistema y presentación del proyecto | 5 |
 
 ## Reglas de trabajo
 
